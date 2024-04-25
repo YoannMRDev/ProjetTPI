@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MiFiSy_TPI.ParticleCreator.Structure;
 using System;
 using System.Collections.Generic;
@@ -12,7 +13,7 @@ namespace MiFiSy_TPI.ParticleCreator
 {
     internal class Particle
     {
-        private readonly ParticleData _data;
+        private ParticleData _data;
         private Vector2 _position;
         private float _lifespanLeft;
         private float _lifespanAmount;
@@ -24,6 +25,8 @@ namespace MiFiSy_TPI.ParticleCreator
         private Vector2 _direction;
 
         public Vector2 Position { get => _position; set => _position = value; }
+
+        internal ParticleData Data { get => _data; set => _data = value; }
 
         public Particle(Vector2 pos, ParticleData data)
         {

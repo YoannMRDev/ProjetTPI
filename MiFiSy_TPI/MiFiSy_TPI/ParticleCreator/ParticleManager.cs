@@ -13,8 +13,8 @@ namespace MiFiSy_TPI.ParticleCreator
 {
     internal class ParticleManager
     {
-        private static readonly List<Particle> _particles = new List<Particle>();
-        private static readonly List<ParticleEmitter> _particleEmitters = new List<ParticleEmitter>();
+        private static List<Particle> _particles = new List<Particle>();
+        private static List<ParticleEmitter> _particleEmitters = new List<ParticleEmitter>();
 
         public ParticleManager()
         {
@@ -57,53 +57,6 @@ namespace MiFiSy_TPI.ParticleCreator
             */
         }
 
-        public static void CreateComete(Vector2 emitposition, float angle, float speed, float lifespan)
-        {
-            ParticleEmitterData ped2 = new ParticleEmitterData()
-            {
-                interval = 0,
-                emitCount = 0,
-                lifespanMin = lifespan,
-                lifespanMax = lifespan,
-                angle = MathHelper.ToDegrees(angle),
-                speedMin = speed,
-                speedMax = speed,
-                particleData = new ParticleData()
-                {
-                    colorStart = Color.OrangeRed,
-                    colorEnd = Color.Yellow,
-                    sizeStart = 120,
-                    sizeEnd = 120,
-                }
-            };
-
-            ParticleEmitter particleEmitter = new ParticleEmitter(emitposition, ped2);
-            particleEmitter.Emit(emitposition);
-            AddParticleEmitter(particleEmitter);
-
-            ParticleEmitterData ped = new ParticleEmitterData()
-            {
-                interval = 0.01f,
-                emitCount = 5,
-                lifespanMin = lifespan,
-                lifespanMax = lifespan,
-                angle = MathHelper.ToDegrees(angle),
-                randomPosX = true,
-                intervalPos = 0.003f,
-                decreasedLifespan = true,
-                nbDecreasedLifespan = 0.05f,
-                speedMin = speed,
-                speedMax = speed,
-                particleData = new ParticleData()
-                {
-                    colorStart = Color.OrangeRed,
-                    colorEnd = Color.Yellow,
-                    sizeStart = 20,
-                }
-            };
-            AddParticleEmitter(new ParticleEmitter(emitposition, ped));
-        }
-
         public static void AddParticle(Particle p)
         {
             _particles.Add(p);
@@ -122,6 +75,18 @@ namespace MiFiSy_TPI.ParticleCreator
             _particleEmitters.ForEach(e => e.Update());
 
             Debug.Print(_particles.Count.ToString());
+            Debug.Print(_particleEmitters.Count.ToString());
+
+        }
+
+        public static void RemoveParticle(Particle p)
+        {
+            _particles.Remove(p);
+        }
+
+        public static void RemoveParticleEmitter(ParticleEmitter p)
+        {
+            _particleEmitters.Remove(p);
         }
 
         public static void Draw()

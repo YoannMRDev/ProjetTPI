@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using MiFiSy_TPI.GameElement.Firework;
 using MiFiSy_TPI.ParticleCreator;
 using MiFiSy_TPI.UI;
 using System;
@@ -52,13 +53,15 @@ namespace MiFiSy_TPI.GameElement
             _menuButton.Update();
             if (Mode)
             {
+                Globals.LstComete.ForEach(x => x.Update());
+                Globals.LstComete.RemoveAll(c => c.Destroy);
                 _saveButton.Update();
                 if (InputManager.HasClicked)
                 {
                     int nbMortar = Globals.RandomInt(0, (int)NB_MORTAL - 1);
                     Vector2 emitPos = _lstMortar[nbMortar].Position;
                     emitPos.X += _lstMortar[nbMortar].Width /2;
-                    ParticleManager.CreateComete(emitPos, _lstMortar[nbMortar].Angle, 400, 1.5f);
+                    Globals.LstComete.Add(new Comete(emitPos, _lstMortar[nbMortar].Angle, 400, 1.5f));
                 }
             }
             else

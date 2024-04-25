@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using MiFiSy_TPI.ParticleCreator;
 using MiFiSy_TPI.ParticleCreator.Structure;
 using SharpDX.X3DAudio;
@@ -10,13 +11,22 @@ using System.Threading.Tasks;
 
 namespace MiFiSy_TPI.GameElement.Firework
 {
-    internal class Comete
+    public class Comete
     {
-        private Particle mainParticle;
-        private ParticleEmitter emitter;
+        private Particle _mainParticle;
+        private ParticleEmitter _emitter;
+        private float _lifespan;
+        private float _timerLife;
+        private bool _destroy;
+
+        public bool Destroy { get => _destroy; set => _destroy = value; }
 
         public Comete(Vector2 position, float angle, float speed, float lifespan)
         {
+            _lifespan = lifespan;
+            Destroy = false;
+            _timerLife = 0;
+
             ParticleData particleData = new ParticleData()
             {
                 angle = MathHelper.ToDegrees(angle),
@@ -27,8 +37,9 @@ namespace MiFiSy_TPI.GameElement.Firework
                 sizeStart = 120,
                 sizeEnd = 120,
             };
-            mainParticle = new Particle(position, particleData);
-
+            _mainParticle = new Particle(position, particleData);
+            ParticleManager.AddParticle(_mainParticle);
+            
             ParticleEmitterData ped = new ParticleEmitterData()
             {
                 interval = 0.01f,
@@ -49,9 +60,29 @@ namespace MiFiSy_TPI.GameElement.Firework
                     sizeStart = 20,
                 }
             };
+            _emitter = new ParticleEmitter(_mainParticle.Position, ped);
+            ParticleManager.AddParticleEmitter(_emitter);
+        }
 
-            emitter = new ParticleEmitter(mainParticle.Position, ped);
-            ParticleManager.AddParticleEmitter(emitter);
+        public void Update()
+        {
+            if (_emitter.Data.particleData.speed != _mainParticle.Data.speed || _emitter.Data.particleData.angle != _mainParticle.Data.angle)
+            {
+                // Met à jour les données entre tête et queue
+                ParticleEmitterData newData = _emitter.Data;
+                newData.particleData.angle = _mainParticle.Data.angle;
+                newData.particleData.speed = _mainParticle.Data.speed;
+                _emitter.Data = newData;
+            }
+
+            // Supprime en fin de vie
+            _timerLife += Globals.TotalSeconds;
+            if (_timerLife >= _lifespan)
+            {
+                ParticleManager.RemoveParticleEmitter(_emitter);
+                ParticleManager.RemoveParticle(_mainParticle);
+                Destroy = true;
+            }
         }
     }
 }

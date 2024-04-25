@@ -2,7 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MiFiSy_TPI.GameElement;
+using MiFiSy_TPI.GameElement.Firework;
 using MiFiSy_TPI.ParticleCreator;
+using System.Collections.Generic;
 
 namespace MiFiSy_TPI
 {
@@ -30,6 +32,7 @@ namespace MiFiSy_TPI
             Globals.Content = Content;
             Globals.GraphicsDevice = GraphicsDevice;
             Globals.ActualPage = Globals.AllPage.Jeu;
+            Globals.LstComete = new List<Comete>();
 
             Globals.FontButton = Content.Load<SpriteFont>("Font/fontButton");
 

@@ -1,7 +1,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MiFiSy_TPI.GameElement.Firework;
 using System;
+using System.Collections.Generic;
 
 namespace MiFiSy_TPI
 {
@@ -45,6 +47,8 @@ namespace MiFiSy_TPI
         {
             return Random.Next(min, max + 1);
         }
+
+        public static List<Comete> LstComete {  get; set; }
 
     }
 }
