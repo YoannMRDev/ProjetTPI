@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/Font/fontButton.spritefont","C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/bin/Windows/Font/fontButton.xnb","FontDescriptionProcessor","SpriteFontContent",2022,76620,0,2360906
+"C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/particle.png","C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/bin/Windows/particle.xnb","TextureProcessor","Texture2DContent",2024,4181,0,0111641
