@@ -11,20 +11,16 @@ using System.Threading.Tasks;
 
 namespace MiFiSy_TPI.GameElement.Firework
 {
-    public class Comete
+    public class Comet
     {
         private Particle _mainParticle;
         private ParticleEmitter _emitter;
         private float _lifespan;
         private float _timerLife;
-        private bool _destroy;
 
-        public bool Destroy { get => _destroy; set => _destroy = value; }
-
-        public Comete(Vector2 position, float angle, float speed, float lifespan)
+        public Comet(Vector2 position, float angle, float speed, float lifespan)
         {
             _lifespan = lifespan;
-            Destroy = false;
             _timerLife = 0;
 
             ParticleData particleData = new ParticleData()
@@ -81,7 +77,6 @@ namespace MiFiSy_TPI.GameElement.Firework
             {
                 ParticleManager.RemoveParticleEmitter(_emitter);
                 ParticleManager.RemoveParticle(_mainParticle);
-                Destroy = true;
             }
         }
     }

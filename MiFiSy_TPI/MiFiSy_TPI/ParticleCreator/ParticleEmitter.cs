@@ -18,7 +18,6 @@ namespace MiFiSy_TPI.ParticleCreator
         public bool destroy;
 
         internal ParticleEmitterData Data { get => data; set => data = value; }
-        public Vector2 EmitPosition { get => _emitPosition; set => _emitPosition = value; }
 
         public ParticleEmitter(Vector2 emitPosition, ParticleEmitterData data)
         {
@@ -67,6 +66,17 @@ namespace MiFiSy_TPI.ParticleCreator
                 {
                     data.lifespanMin -= data.nbDecreasedLifespan;
                     data.lifespanMax -= data.nbDecreasedLifespan;
+                }
+                if (data.hasGravity)
+                {
+                    if (data.angle > 180)
+                    {
+                        data.angle += data.nbGravity;
+                    }
+                    else if (data.angle < 180)
+                    {
+                        data.angle -= data.nbGravity;
+                    }
                 }
             }
         }

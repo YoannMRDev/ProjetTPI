@@ -32,7 +32,8 @@ namespace MiFiSy_TPI
             Globals.Content = Content;
             Globals.GraphicsDevice = GraphicsDevice;
             Globals.ActualPage = Globals.AllPage.Jeu;
-            Globals.LstComete = new List<Comete>();
+            Globals.LstComete = new List<Comet>();
+            Globals.LstParticleRain = new List<ParticleRain>();
 
             Globals.FontButton = Content.Load<SpriteFont>("Font/fontButton");
 

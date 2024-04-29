@@ -22,6 +22,8 @@ namespace MiFiSy_TPI.ParticleCreator.Structure
         public float nbDecreasedLifespan = 0.05f;
         public bool randomPosX = false;
         public float intervalPos = 0.01f;
+        public bool hasGravity = false;
+        public float nbGravity = 1f;
         public ParticleEmitterData()
         {
         }

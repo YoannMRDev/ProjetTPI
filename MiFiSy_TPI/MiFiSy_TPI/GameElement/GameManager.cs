@@ -19,6 +19,7 @@ namespace MiFiSy_TPI.GameElement
         private List<Mortar> _lstMortar;
 
         private const float NB_MORTAL = 5;
+        private const float LIFESPAN_PARTICLE_RAIN = 3;
 
         public bool Mode { get => _mode; set => _mode = value; }
 
@@ -54,14 +55,15 @@ namespace MiFiSy_TPI.GameElement
             if (Mode)
             {
                 Globals.LstComete.ForEach(x => x.Update());
-                Globals.LstComete.RemoveAll(c => c.Destroy);
+                Globals.LstParticleRain.ForEach(x => x.Update());
                 _saveButton.Update();
                 if (InputManager.HasClicked)
                 {
                     int nbMortar = Globals.RandomInt(0, (int)NB_MORTAL - 1);
                     Vector2 emitPos = _lstMortar[nbMortar].Position;
                     emitPos.X += _lstMortar[nbMortar].Width /2;
-                    Globals.LstComete.Add(new Comete(emitPos, _lstMortar[nbMortar].Angle, 400, 1.5f));
+                    //Globals.LstComete.Add(new Comet(emitPos, _lstMortar[nbMortar].Angle, 400, 1.5f));
+                    Globals.LstParticleRain.Add(new ParticleRain(80, LIFESPAN_PARTICLE_RAIN));
                 }
             }
             else

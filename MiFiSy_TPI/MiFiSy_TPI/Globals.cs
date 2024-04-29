@@ -48,7 +48,9 @@ namespace MiFiSy_TPI
             return Random.Next(min, max + 1);
         }
 
-        public static List<Comete> LstComete {  get; set; }
+        public static List<Comet> LstComete {  get; set; }
+
+        public static List<ParticleRain> LstParticleRain { get; set; }
 
     }
 }

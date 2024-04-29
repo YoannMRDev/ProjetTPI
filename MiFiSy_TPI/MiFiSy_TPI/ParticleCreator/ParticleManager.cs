@@ -73,10 +73,6 @@ namespace MiFiSy_TPI.ParticleCreator
             _particleEmitters.RemoveAll(p => p.destroy);
             _particles.ForEach(p => p.Update());
             _particleEmitters.ForEach(e => e.Update());
-
-            Debug.Print(_particles.Count.ToString());
-            Debug.Print(_particleEmitters.Count.ToString());
-
         }
 
         public static void RemoveParticle(Particle p)
