@@ -16,6 +16,10 @@ namespace MiFiSy_TPI.ParticleCreator
         private float _intervalLeft;
         private Vector2 _emitPosition;
         public bool destroy;
+        private float _timerGravity;
+        private float _defaultLifespan;
+
+        private const float ANGLE_GRAVITY = 180;
 
         internal ParticleEmitterData Data { get => data; set => data = value; }
 
@@ -25,6 +29,8 @@ namespace MiFiSy_TPI.ParticleCreator
             this.data = data;
             _intervalLeft = data.interval;
             destroy = false;
+            _timerGravity = 0;
+            _defaultLifespan = data.lifespanMax;
         }
 
         /// <summary>
@@ -52,6 +58,7 @@ namespace MiFiSy_TPI.ParticleCreator
 
         public void Update()
         {
+            _timerGravity += Globals.TotalSeconds;
             _intervalLeft -= Globals.TotalSeconds;
             if (_intervalLeft <= 0f)
             {
@@ -62,21 +69,27 @@ namespace MiFiSy_TPI.ParticleCreator
                 {
                     Emit(_emitPosition);
                 }
+                
+                // Diminue le lifespan des prochaines particules
                 if (data.decreasedLifespan)
                 {
                     data.lifespanMin -= data.nbDecreasedLifespan;
                     data.lifespanMax -= data.nbDecreasedLifespan;
                 }
-                if (data.hasGravity)
+            }
+
+            // Effet de gravité
+            if (data.hasGravity)
+            {
+                if (data.angle > ANGLE_GRAVITY)
                 {
-                    if (data.angle > 180)
-                    {
-                        data.angle += data.nbGravity;
-                    }
-                    else if (data.angle < 180)
-                    {
-                        data.angle -= data.nbGravity;
-                    }
+                    //data.angle += (data.angle - ANGLE_GRAVITY) * (_defaultLifespan - _timerGravity) * Globals.TotalSeconds;
+                    data.angle += data.nbGravity;
+                }
+                else if (data.angle < ANGLE_GRAVITY)
+                {
+                    data.angle -= data.nbGravity;
+                    //data.angle -= (ANGLE_GRAVITY - data.angle) * (_defaultLifespan - _timerGravity) * Globals.TotalSeconds;
                 }
             }
         }

@@ -14,7 +14,7 @@ namespace MiFiSy_TPI.GameElement.Firework
     public class ParticleRain
     {
         private Vector2 _position;
-        private List<ParticleEmitter> _lstParticles;
+        private List<ParticleEmitter> _lstParticlesEmitter;
         private float _lifespan;
         private float _timerLife;
 
@@ -26,7 +26,7 @@ namespace MiFiSy_TPI.GameElement.Firework
             _lifespan = lifespan;
             _timerLife = 0;
             _position = new Vector2(Globals.RandomFloat(distanceFromBorder, Globals.ScreenWidth - distanceFromBorder) / Globals.ScreenWidth, Globals.RandomFloat(distanceFromBorder, Globals.ScreenHeight / 2) / Globals.ScreenHeight);
-            _lstParticles = new List<ParticleEmitter>();
+            _lstParticlesEmitter = new List<ParticleEmitter>();
 
             for (int angle = 1; angle <= NB_PARTICLE; angle++)
             {
@@ -57,14 +57,14 @@ namespace MiFiSy_TPI.GameElement.Firework
 
                 ParticleEmitter p = new ParticleEmitter(_position, particleEmitterData);
                 ParticleManager.AddParticleEmitter(p);
-                _lstParticles.Add(p);
+                _lstParticlesEmitter.Add(p);
             }
         }
 
         public void Update()
         {
             // Diminue la vitesse des particules
-            foreach (ParticleEmitter item in _lstParticles)
+            foreach (ParticleEmitter item in _lstParticlesEmitter)
             {
                 ParticleEmitterData newData = item.Data;
                 if (newData.speedMax > 0 && newData.speedMin > 0)
@@ -79,11 +79,11 @@ namespace MiFiSy_TPI.GameElement.Firework
             _timerLife += Globals.TotalSeconds;
             if (_timerLife >= _lifespan)
             {
-                foreach (ParticleEmitter item in _lstParticles)
+                foreach (ParticleEmitter item in _lstParticlesEmitter)
                 {
                     ParticleManager.RemoveParticleEmitter(item);
                 }
-                _lstParticles.Clear();
+                _lstParticlesEmitter.Clear();
             }
         }
     }
