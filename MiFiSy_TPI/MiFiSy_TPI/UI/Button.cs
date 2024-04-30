@@ -1,12 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using SharpDX.Direct2D1.Effects;
+using MiFiSy_TPI.GameElement;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
 using System.Windows.Forms;
 
 namespace MiFiSy_TPI.UI
@@ -24,8 +23,10 @@ namespace MiFiSy_TPI.UI
         private float _padding;
         private float _scale;
         private string _action;
+        private bool _isPressed;
 
         public Rectangle Rectangle { get => new Rectangle((int)(_position.X * Globals.ScreenWidth), (int)(_position.Y * Globals.ScreenHeight), _texture.Width, _texture.Height); }
+        public bool IsPressed { get => _isPressed; set => _isPressed = value; }
 
         public Button(Vector2 position, float width, float height, string text, Color backgroundColor, Color textColor, string action, float padding = 0.2f)
         {
@@ -38,6 +39,7 @@ namespace MiFiSy_TPI.UI
             _padding = padding;
             _action = action;
             _scale = 1;
+            IsPressed = false;
 
             SetTexture();
             SetTextPositionAndScale();
@@ -82,19 +84,24 @@ namespace MiFiSy_TPI.UI
 
         public void Update()
         {
-            switch (_action)
+            if (InputManager.HasClicked && Rectangle.Contains(InputManager.MousePosition))
             {
-                case "goBack":
-                    if (InputManager.HasClicked && Rectangle.Contains(InputManager.MousePosition))
-                    {
+                switch (_action)
+                {
+                    case "goBack":
+                        // Retour à l'accueil
                         Globals.ActualPage = Globals.AllPage.Accueil;
-                    }
-                    break;
-                case "save":
-                    // Sauvegarder la séquence
-                    break;
-                default:
-                    break;
+                        break;
+                    case "save":
+                        IsPressed = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                IsPressed = false;
             }
         }
 

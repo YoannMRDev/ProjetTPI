@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MiFiSy_TPI
+namespace MiFiSy_TPI.GameElement
 {
     internal class InputManager
     {

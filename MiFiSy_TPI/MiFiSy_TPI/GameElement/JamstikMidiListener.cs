@@ -7,16 +7,20 @@ using System.Threading.Tasks;
 using MiFiSy_TPI.ParticleCreator;
 using NAudio.Midi;
 
-namespace MiFiSy_TPI
+namespace MiFiSy_TPI.GameElement
 {
     internal class JamstikMidiListener
     {
         private MidiIn _midi;
-        public MidiIn Midi { get => _midi; set => _midi = value; }
+        private bool _isConnected;
+        private GameManager _gameManager;
 
-        public JamstikMidiListener()
+        public bool IsConnected { get => _isConnected; set => _isConnected = value; }
+
+        public JamstikMidiListener(GameManager gameManager)
         {
-            bool isConnected = false;
+            _gameManager = gameManager;
+            IsConnected = false;
             if (MidiIn.NumberOfDevices == 0)
             {
                 Debug.Print("Aucun périphérique MIDI d'entrée n'a été trouvé.");
@@ -31,17 +35,17 @@ namespace MiFiSy_TPI
                     // Connexion au Jamstik
                     if (capabilities.ProductName == "Jamstik")
                     {
-                        Midi = new MidiIn(i);
-                        Midi.MessageReceived += MidiIn_MessageReceived;
-                        Midi.Start();
-                        isConnected = true;
+                        _midi = new MidiIn(i);
+                        _midi.MessageReceived += MidiIn_MessageReceived;
+                        _midi.Start();
+                        IsConnected = true;
                         break;
                     }
                 }
 
-                if (!isConnected)
+                if (!IsConnected)
                 {
-                    Debug.Print("Aucun Jamstick trouvé");
+                    Debug.Print("Aucun 'Jamstick' trouvé");
                 }
             }
         }
@@ -59,12 +63,12 @@ namespace MiFiSy_TPI
                     // Corde 1 jouée
                     if (noteEvent.Channel - 1 == 1)
                     {
-
+                        _gameManager.CreateComete(noteEvent.Velocity);
                     }
                     // Corde 2 jouée
                     else if (noteEvent.Channel - 1 == 2)
                     {
-
+                        _gameManager.CreateParticleRain(noteEvent.Velocity);
                     }
                 }
             }

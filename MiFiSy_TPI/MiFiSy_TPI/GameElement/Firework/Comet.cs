@@ -11,27 +11,43 @@ using System.Threading.Tasks;
 
 namespace MiFiSy_TPI.GameElement.Firework
 {
-    public class Comet
+    public class Comet : IFirework
     {
         private Particle _mainParticle;
         private ParticleEmitter _emitter;
         private float _lifespan;
         private float _timerLife;
 
-        public Comet(Vector2 position, float angle, float speed, float lifespan)
+        private float _launchTime;
+        private Vector2 _startPosition;
+        private float _startAngle;
+        private float _startSpeed;
+
+        public float LaunchTime { get => _launchTime; set => _launchTime = value; }
+        public Vector2 StartPosition { get => _startPosition; set => _startPosition = value; }
+        internal Particle MainParticle { get => _mainParticle; set => _mainParticle = value; }
+        public float StartAngle { get => _startAngle; set => _startAngle = value; }
+        public float StartSpeed { get => _startSpeed; set => _startSpeed = value; }
+        public float Lifespan { get => _lifespan; set => _lifespan = value; }
+
+        public Comet(Vector2 position, float angle, float speed, float lifespan, float launchTime)
         {
-            _lifespan = lifespan;
+            LaunchTime = launchTime;
+            StartPosition = position;
+            StartAngle = MathHelper.ToDegrees(angle);
+            StartSpeed = speed;
+            Lifespan = lifespan;
             _timerLife = 0;
 
             ParticleData particleData = new ParticleData()
             {
-                angle = MathHelper.ToDegrees(angle),
-                speed = speed,
-                lifespan = lifespan,
-                colorStart = Color.OrangeRed,
-                colorEnd = Color.Yellow,
-                sizeStart = 120,
-                sizeEnd = 120,
+                angle = StartAngle,
+                speed = StartSpeed,
+                lifespan = Lifespan,
+                colorStart = Config.COLOR_START,
+                colorEnd = Config.COLOR_END,
+                sizeStart = Config.COMET_MAIN_SIZE,
+                sizeEnd = Config.COMET_MAIN_SIZE,
             };
             _mainParticle = new Particle(position, particleData);
             ParticleManager.AddParticle(_mainParticle);
@@ -40,20 +56,21 @@ namespace MiFiSy_TPI.GameElement.Firework
             {
                 interval = 0.01f,
                 emitCount = 5,
-                lifespanMin = lifespan,
-                lifespanMax = lifespan,
-                angle = MathHelper.ToDegrees(angle),
+                lifespanMin = Lifespan,
+                lifespanMax = Lifespan,
+                angle = StartAngle,
                 randomPosX = true,
                 intervalPos = 0.003f,
                 decreasedLifespan = true,
                 nbDecreasedLifespan = 0.05f,
-                speedMin = speed,
-                speedMax = speed,
+                speedMin = StartSpeed,
+                speedMax = StartSpeed,
                 particleData = new ParticleData()
                 {
-                    colorStart = Color.OrangeRed,
-                    colorEnd = Color.Yellow,
-                    sizeStart = 20,
+                    colorStart = Config.COLOR_START,
+                    colorEnd = Config.COLOR_END,
+                    sizeStart = Config.COMET_OTHER_SIZE,
+                    sizeEnd = Config.COMET_OTHER_SIZE,
                 }
             };
             _emitter = new ParticleEmitter(_mainParticle.Position, ped);
@@ -73,7 +90,7 @@ namespace MiFiSy_TPI.GameElement.Firework
 
             // Supprime en fin de vie
             _timerLife += Globals.TotalSeconds;
-            if (_timerLife >= _lifespan)
+            if (_timerLife >= Lifespan)
             {
                 ParticleManager.RemoveParticleEmitter(_emitter);
                 ParticleManager.RemoveParticle(_mainParticle);

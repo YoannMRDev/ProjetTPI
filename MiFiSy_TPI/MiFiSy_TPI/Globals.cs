@@ -38,19 +38,31 @@ namespace MiFiSy_TPI
             TotalSeconds = (float)gt.ElapsedGameTime.TotalSeconds;
         }
 
+        /// <summary>
+        /// Retourne un float aléatoire entre min et max
+        /// </summary>
+        /// <param name="min">nombre minimum</param>
+        /// <param name="max">nombre maximum</param>
+        /// <returns>nombre aléatoire</returns>
         public static float RandomFloat(float min, float max)
         {
             return (float)(Random.NextDouble() * (max - min)) + min;
         }
 
+        /// <summary>
+        /// Retourne un nombre aléatoire entre min et max
+        /// </summary>
+        /// <param name="min">nombre minimum</param>
+        /// <param name="max">nombre maximum</param>
+        /// <returns>nombre aléatoire</returns>
         public static int RandomInt(int min, int max)
         {
             return Random.Next(min, max + 1);
         }
 
-        public static List<Comet> LstComete {  get; set; }
-
-        public static List<ParticleRain> LstParticleRain { get; set; }
-
+        /// <summary>
+        /// Liste de feu d'artifice de la séquence (mode libre)
+        /// </summary>
+        public static List<IFirework> LstFirework {  get; set; }
     }
 }

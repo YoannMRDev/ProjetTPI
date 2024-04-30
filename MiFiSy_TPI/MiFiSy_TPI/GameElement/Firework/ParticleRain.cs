@@ -11,51 +11,59 @@ using System.Threading.Tasks;
 
 namespace MiFiSy_TPI.GameElement.Firework
 {
-    public class ParticleRain
+    public class ParticleRain : IFirework
     {
-        private Vector2 _position;
         private List<ParticleEmitter> _lstParticlesEmitter;
         private float _lifespan;
         private float _timerLife;
+        
+        private float _launchTime;
+        private Vector2 _startPosition;
+        private float _startSpeed;
 
-        private const int NB_PARTICLE = 360;
-        private const int NB_SPEED_DECREASE = 2;
+        public float Lifespan { get => _lifespan; set => _lifespan = value; }
+        public float LaunchTime { get => _launchTime; set => _launchTime = value; }
+        public Vector2 StartPosition { get => _startPosition; set => _startPosition = value; }
+        public float StartSpeed { get => _startSpeed; set => _startSpeed = value; }
 
-        public ParticleRain(float speed, float lifespan, float distanceFromBorder = 100)
+        public ParticleRain(float speed, float lifespan, float launchTime ,float distanceFromBorder = 100)
         {
-            _lifespan = lifespan;
+            LaunchTime = launchTime;
+            Lifespan = lifespan;
+            StartSpeed = speed;
+            
             _timerLife = 0;
-            _position = new Vector2(Globals.RandomFloat(distanceFromBorder, Globals.ScreenWidth - distanceFromBorder) / Globals.ScreenWidth, Globals.RandomFloat(distanceFromBorder, Globals.ScreenHeight / 2) / Globals.ScreenHeight);
+            StartPosition = new Vector2(Globals.RandomFloat(distanceFromBorder, Globals.ScreenWidth - distanceFromBorder) / Globals.ScreenWidth, Globals.RandomFloat(distanceFromBorder, Globals.ScreenHeight / 2) / Globals.ScreenHeight);
             _lstParticlesEmitter = new List<ParticleEmitter>();
 
-            for (int angle = 1; angle <= NB_PARTICLE; angle++)
+            for (int i = 1; i <= Config.PARTICLE_RAIN_NB; i++)
             {
+                float angle = 360 / Config.PARTICLE_RAIN_NB * i;
                 float newSpeed = Globals.RandomFloat(0, speed);
                 ParticleEmitterData particleEmitterData = new ParticleEmitterData()
                 {
                     interval = 0.01f,
                     emitCount = 1,
-                    lifespanMin = lifespan,
-                    lifespanMax = lifespan,
+                    lifespanMin = Lifespan,
+                    lifespanMax = Lifespan,
                     angle = angle,
                     decreasedLifespan = true,
                     nbDecreasedLifespan = 0.2f,
                     speedMin = newSpeed,
                     speedMax = newSpeed,
                     hasGravity = true,
-                    nbGravity = 1,
                     particleData = new ParticleData()
                     {
                         angle = angle,
                         speed = newSpeed,
-                        colorStart = Color.OrangeRed,
-                        colorEnd = Color.Yellow,
-                        sizeStart = 10,
-                        sizeEnd = 10,
+                        colorStart = Config.COLOR_START,
+                        colorEnd = Config.COLOR_END,
+                        sizeStart = Config.PARTICLE_RAIN_SIZE,
+                        sizeEnd = Config.PARTICLE_RAIN_SIZE,
                     }
                 };
 
-                ParticleEmitter p = new ParticleEmitter(_position, particleEmitterData);
+                ParticleEmitter p = new ParticleEmitter(StartPosition, particleEmitterData);
                 ParticleManager.AddParticleEmitter(p);
                 _lstParticlesEmitter.Add(p);
             }
@@ -69,15 +77,15 @@ namespace MiFiSy_TPI.GameElement.Firework
                 ParticleEmitterData newData = item.Data;
                 if (newData.speedMax > 0 && newData.speedMin > 0)
                 {
-                    newData.speedMax -= NB_SPEED_DECREASE;
-                    newData.speedMin -= NB_SPEED_DECREASE;
+                    newData.speedMax -= Config.PARTICLE_RAIN_SPEED_DECREASE;
+                    newData.speedMin -= Config.PARTICLE_RAIN_SPEED_DECREASE;
                     item.Data = newData;
                 }
             }
 
             // Supprime en fin de vie
             _timerLife += Globals.TotalSeconds;
-            if (_timerLife >= _lifespan)
+            if (_timerLife >= Lifespan)
             {
                 foreach (ParticleEmitter item in _lstParticlesEmitter)
                 {

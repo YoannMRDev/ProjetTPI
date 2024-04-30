@@ -13,6 +13,7 @@ namespace MiFiSy_TPI
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
         private GameManager _gameManager;
+        private JamstikMidiListener _jamstikMidiListener;
 
         public Game1()
         {
@@ -32,13 +33,12 @@ namespace MiFiSy_TPI
             Globals.Content = Content;
             Globals.GraphicsDevice = GraphicsDevice;
             Globals.ActualPage = Globals.AllPage.Jeu;
-            Globals.LstComete = new List<Comet>();
-            Globals.LstParticleRain = new List<ParticleRain>();
-
+            Globals.LstFirework = new List<IFirework>();
             Globals.FontButton = Content.Load<SpriteFont>("Font/fontButton");
 
-            new JamstikMidiListener();
+            new Config();
             _gameManager = new GameManager(true);
+            _jamstikMidiListener = new JamstikMidiListener(_gameManager);
             base.Initialize();
         }
 
@@ -70,7 +70,7 @@ namespace MiFiSy_TPI
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            _spriteBatch.Begin();
+            Globals.SpriteBatch.Begin();
             switch (Globals.ActualPage)
             {
                 case Globals.AllPage.Accueil:
@@ -82,7 +82,7 @@ namespace MiFiSy_TPI
                 default:
                     break;
             }
-            _spriteBatch.End();
+            Globals.SpriteBatch.End();
             base.Draw(gameTime);
         }
     }

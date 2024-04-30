@@ -1,0 +1,15 @@
+<Config>
+  <Author>Yoann</Author>
+  <NameSequence>Sequence de feu d artifice</NameSequence>
+  <PathMusic>music/</PathMusic>
+  <PathImg>img/image.png</PathImg>
+  <Mortar angle="10" height="0,15" width="0,025" positionX="0,1" positionY="0,85"/>
+  <Mortar angle="10" height="0,15" width="0,025" positionX="0,3" positionY="0,85"/>
+  <Mortar angle="10" height="0,15" width="0,025" positionX="0,5" positionY="0,85"/>
+  <Mortar angle="10" height="0,15" width="0,025" positionX="0,7" positionY="0,85"/>
+  <Mortar angle="10" height="0,15" width="0,025" positionX="0,9" positionY="0,85"/>
+  <ColorStart r="255" g="69" b="0"/>
+  <ColorEnd r="255" g="255" b="0"/>
+  <ParticleRain sizeParticle="10" nbParticle="360" lifeSpan="0,06" speedDecrease="2" defaultSpeed="80"/>
+  <Comet sizeMainParticle="120" sizeOtherParticle="20" defaultSpeed="20" defaultLifespan="1,5" />
+</Config>

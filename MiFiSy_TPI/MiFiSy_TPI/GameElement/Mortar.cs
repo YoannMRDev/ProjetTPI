@@ -17,27 +17,28 @@ namespace MiFiSy_TPI.GameElement
         private Texture2D _texture;
         private float _angle;
 
-        public Rectangle Rectangle { get => new Rectangle((int)(_position.X * Globals.ScreenWidth), (int)(_position.Y * Globals.ScreenHeight), _texture.Width, _texture.Height); }
+        public Rectangle Rectangle { get => new Rectangle((int)(Position.X * Globals.ScreenWidth), (int)(Position.Y * Globals.ScreenHeight), _texture.Width, _texture.Height); }
         public Vector2 Position { get => _position; set => _position = value; }
         public float Width { get => _width; set => _width = value; }
         public float Angle { get => _angle; set => _angle = value; }
+        public float Height { get => _height; set => _height = value; }
 
-        public Mortar(Vector2 position, float width, float height, Color color)
+        public Mortar(Vector2 position, float width, float height, float angle ,Color color)
         {
-            _position = position;
+            Position = position;
             _color = color;
-            _width = width;
-            _height = height;
-            _angle = Globals.RandomFloat(-10, 10);
+            Width = width;
+            Height = height;
+            Angle = Globals.RandomFloat(-angle, angle);
 
             // Converti l'angle en radians
-            if (_angle >= 0)
+            if (Angle >= 0)
             {
-                _angle = MathHelper.ToRadians(_angle);
+                Angle = MathHelper.ToRadians(Angle);
             }
             else
             {
-                _angle = -MathHelper.ToRadians(Math.Abs(_angle));
+                Angle = -MathHelper.ToRadians(Math.Abs(Angle));
             }
             SetTexture();
         }
@@ -47,8 +48,8 @@ namespace MiFiSy_TPI.GameElement
         /// </summary>
         public void SetTexture()
         {
-            int width = (int)(_width * Globals.ScreenWidth);
-            int height = (int)(_height * Globals.ScreenHeight);
+            int width = (int)(Width * Globals.ScreenWidth);
+            int height = (int)(Height * Globals.ScreenHeight);
             _texture = new Texture2D(Globals.GraphicsDevice, width, height);
             Color[] colorData = new Color[width * height];
             for (int i = 0; i < colorData.Length; ++i)
@@ -56,12 +57,11 @@ namespace MiFiSy_TPI.GameElement
                 colorData[i] = _color;
             }
             _texture.SetData(colorData);
-
         }
 
         public void Draw()
         {
-            Globals.SpriteBatch.Draw(_texture, Rectangle, null ,_color, _angle, Vector2.Zero, SpriteEffects.None, 0);
+            Globals.SpriteBatch.Draw(_texture, Rectangle, null ,_color, Angle, Vector2.Zero, SpriteEffects.None, 0);
         }
     }
 }
