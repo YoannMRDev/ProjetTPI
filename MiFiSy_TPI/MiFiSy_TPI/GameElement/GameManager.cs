@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using MiFiSy_TPI.GameElement.Firework;
@@ -24,6 +25,7 @@ namespace MiFiSy_TPI.GameElement
         private List<Mortar> _lstMortar;
         private float _timerLauch;
         private Song _music;
+        private Texture2D _background;
 
         // Message après sauvegarde
         private float _timerSave;
@@ -51,6 +53,11 @@ namespace MiFiSy_TPI.GameElement
                     MediaPlayer.Play(_music);
                 }
                 _saveButton = new Button(new Vector2(0.89f, 0.01f), 0.1f, 0.05f, "Sauvegarder", Color.Gray, Color.White, "save");
+
+                if (Config.PATH_IMG != "")
+                {
+                    _background = Texture2D.FromFile(Globals.GraphicsDevice, Config.PATH_IMG);
+                }
             }
             else
             {
@@ -249,10 +256,12 @@ namespace MiFiSy_TPI.GameElement
 
         public void Draw()
         {
-            _menuButton.Draw();
-            _lstMortar.ForEach(m => m.Draw());
             if (Mode)
             {
+                if (Config.PATH_IMG != "")
+                {
+                    Globals.SpriteBatch.Draw(_background, new Rectangle(0, 0, Globals.ScreenWidth, Globals.ScreenHeight), Color.White);
+                }
                 _saveButton.Draw();
                 if (showMessageSave)
                 {
@@ -264,6 +273,8 @@ namespace MiFiSy_TPI.GameElement
                 // Affiche le replay
                 // Affiche les données du replay
             }
+            _menuButton.Draw();
+            _lstMortar.ForEach(m => m.Draw());
         }
     }
 }

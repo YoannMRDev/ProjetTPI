@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FireworkSequence name="Sequence de feu d artifice" creationDate="2024-05-02" author="Yoann">
+  <Audio track="" />
+  <Background img="img/background.png" />
+  <mortar positionX="0.1" positionY="0.85" width="0.025" height="0.15" angle="1.2552662" />
+  <mortar positionX="0.3" positionY="0.85" width="0.025" height="0.15" angle="-1.0179939" />
+  <mortar positionX="0.5" positionY="0.85" width="0.025" height="0.15" angle="7.3697853" />
+  <mortar positionX="0.7" positionY="0.85" width="0.025" height="0.15" angle="9.207815" />
+  <mortar positionX="0.9" positionY="0.85" width="0.025" height="0.15" angle="2.47573" />
+  <Firework type="Comet" lauchTime="3.5666666">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start x="0.91249996" y="0.85" angle="2.47573" speed="400" lifeSpan="1.5" />
+  </Firework>
+  <Firework type="ParticleRain" lauchTime="3.5666666">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start x="0.91652316" y="0.25495774" speed="80" lifeSpan="1.5" nbParticle="360" />
+  </Firework>
+</FireworkSequence>

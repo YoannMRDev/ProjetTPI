@@ -26,7 +26,7 @@ namespace MiFiSy_TPI
         {
             _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
-            _graphics.IsFullScreen = true;
+            _graphics.IsFullScreen = false;
             _graphics.ApplyChanges();
 
             Globals.ScreenWidth = _graphics.PreferredBackBufferWidth;
@@ -85,8 +85,8 @@ namespace MiFiSy_TPI
                     Globals.home.Draw();
                     break;
                 case Globals.AllPage.Game:
-                    ParticleManager.Draw();
                     Globals.GameManager.Draw();
+                    ParticleManager.Draw();
                     break;
                 default:
                     break;
