@@ -184,7 +184,7 @@ namespace MiFiSy_TPI.GameElement
                     fireworkSequence.Add(rainElement);
                 }
             }
-            document.Save($"{currentDate.ToString("yyyy-MM-dd HH_mm_ss")}.xml");
+            document.Save($"{Config.PATH_SAVE_SEQUENCE}{currentDate.ToString("yyyy-MM-dd HH_mm_ss")}.xml");
             Globals.LstFirework.Clear();
         }
 

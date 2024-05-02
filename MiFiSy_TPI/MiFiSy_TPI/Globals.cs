@@ -1,20 +1,21 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MiFiSy_TPI.GameElement;
 using MiFiSy_TPI.GameElement.Firework;
 using System;
 using System.Collections.Generic;
 
 namespace MiFiSy_TPI
 {
-    public static class Globals
+    internal static class Globals
     {
         public static float TotalSeconds { get; set; }
 
         public enum AllPage
         {
-            Accueil,
-            Jeu,
+            Home,
+            Game,
         }
 
         public static AllPage ActualPage {  get; set; }
@@ -32,6 +33,15 @@ namespace MiFiSy_TPI
         public static int ScreenWidth { get; set; }
 
         public static int ScreenHeight { get; set; }
+
+        public static string MusicSelectedName { get; set; }
+
+        public static string ReplaySelectedName { get; set; }
+
+        public static Home home { get; set; }
+
+        public static GameManager GameManager { get; set; }
+
 
         public static void Update(GameTime gt)
         {

@@ -22,6 +22,7 @@ namespace MiFiSy_TPI
         public static string NAME_SEQUENCE { get => _configElement.Descendants("NameSequence").FirstOrDefault().Value; }
         public static string PATH_MUSIC { get => _configElement.Descendants("PathMusic").FirstOrDefault().Value; }
         public static string PATH_IMG { get => _configElement.Descendants("PathImg").FirstOrDefault().Value; }
+        public static string PATH_SAVE_SEQUENCE { get => _configElement.Descendants("PathSaveDequence").FirstOrDefault().Value; }
         public static List<XElement> ALL_MORTAR { get => _configElement.Descendants("Mortar").ToList(); }
         public static Color COLOR_START { get => GetColorFromElement(_configElement.Descendants("ColorStart").FirstOrDefault()); }
         public static Color COLOR_END { get => GetColorFromElement(_configElement.Descendants("ColorEnd").FirstOrDefault()); }

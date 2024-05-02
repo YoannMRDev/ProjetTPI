@@ -27,6 +27,8 @@ namespace MiFiSy_TPI.UI
 
         public Rectangle Rectangle { get => new Rectangle((int)(_position.X * Globals.ScreenWidth), (int)(_position.Y * Globals.ScreenHeight), _texture.Width, _texture.Height); }
         public bool IsPressed { get => _isPressed; set => _isPressed = value; }
+        public string Text { get => _text; set => _text = value; }
+        public Color TextColor { get => _textColor; set => _textColor = value; }
 
         public Button(Vector2 position, float width, float height, string text, Color backgroundColor, Color textColor, string action, float padding = 0.2f)
         {
@@ -90,10 +92,18 @@ namespace MiFiSy_TPI.UI
                 {
                     case "goBack":
                         // Retour à l'accueil
-                        Globals.ActualPage = Globals.AllPage.Accueil;
+                        Globals.MusicSelectedName = "";
+                        Globals.home = new Home();
+                        Globals.ActualPage = Globals.AllPage.Home;
                         break;
+                    case "playReplay":
+                    case "addMusic":
                     case "save":
                         IsPressed = true;
+                        break;
+                    case "play":
+                        Globals.GameManager = new GameManager(true, Globals.MusicSelectedName);
+                        Globals.ActualPage = Globals.AllPage.Game;
                         break;
                     default:
                         break;

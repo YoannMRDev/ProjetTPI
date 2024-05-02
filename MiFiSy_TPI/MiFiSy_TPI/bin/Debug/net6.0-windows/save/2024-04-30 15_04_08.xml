@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FireworkSequence name="Sequence de feu d artifice" creationDate="2024-04-30" author="Yoann">
+  <Audio track="music/" />
+  <Background img="img/image.png" />
+  <mortar positionX="0.3" positionY="0.85" width="0.025" height="0.15" angle="7.5068784" />
+  <mortar positionX="0.6" positionY="0.45" width="0.025" height="0.55" angle="2.6196604" />
+  <mortar positionX="0.9" positionY="0.85" width="0.025" height="0.15" angle="9.437973" />
+  <Firework type="Comet" lauchTime="0.25000045">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start x="0.6125" y="0.45" angle="2.6196604" speed="400" lifeSpan="1.5" />
+  </Firework>
+  <Firework type="Comet" lauchTime="0.40000084">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start x="0.3125" y="0.85" angle="7.5068784" speed="400" lifeSpan="1.5" />
+  </Firework>
+  <Firework type="Comet" lauchTime="0.5666679">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start x="0.91249996" y="0.85" angle="9.437973" speed="400" lifeSpan="1.5" />
+  </Firework>
+  <Firework type="Comet" lauchTime="0.7166683">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start x="0.91249996" y="0.85" angle="9.437973" speed="400" lifeSpan="1.5" />
+  </Firework>
+  <Firework type="Comet" lauchTime="0.8333353">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start x="0.91249996" y="0.85" angle="9.437973" speed="400" lifeSpan="1.5" />
+  </Firework>
+  <Firework type="Comet" lauchTime="0.9833357">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start x="0.91249996" y="0.85" angle="9.437973" speed="400" lifeSpan="1.5" />
+  </Firework>
+  <Firework type="Comet" lauchTime="1.1000023">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start x="0.6125" y="0.45" angle="2.6196604" speed="400" lifeSpan="1.5" />
+  </Firework>
+</FireworkSequence>

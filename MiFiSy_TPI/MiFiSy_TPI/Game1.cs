@@ -12,7 +12,6 @@ namespace MiFiSy_TPI
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private GameManager _gameManager;
         private JamstikMidiListener _jamstikMidiListener;
 
         public Game1()
@@ -32,13 +31,16 @@ namespace MiFiSy_TPI
             Globals.ScreenHeight = _graphics.PreferredBackBufferHeight;
             Globals.Content = Content;
             Globals.GraphicsDevice = GraphicsDevice;
-            Globals.ActualPage = Globals.AllPage.Jeu;
+            Globals.ActualPage = Globals.AllPage.Home;
             Globals.LstFirework = new List<IFirework>();
+            Globals.MusicSelectedName = "";
+            Globals.ReplaySelectedName = "";
             Globals.FontButton = Content.Load<SpriteFont>("Font/fontButton");
-
+                
             new Config();
-            _gameManager = new GameManager(true);
-            _jamstikMidiListener = new JamstikMidiListener(_gameManager);
+            Globals.GameManager = new GameManager(true);
+            _jamstikMidiListener = new JamstikMidiListener(Globals.GameManager);
+            Globals.home = new Home();
             base.Initialize();
         }
 
@@ -54,11 +56,12 @@ namespace MiFiSy_TPI
             InputManager.Update();
             switch (Globals.ActualPage)
             {
-                case Globals.AllPage.Accueil:
+                case Globals.AllPage.Home:
+                    Globals.home.Update();
                     break;
-                case Globals.AllPage.Jeu:
+                case Globals.AllPage.Game:
                     ParticleManager.Update();
-                    _gameManager.Update();
+                    Globals.GameManager.Update();
                     break;
                 default:
                     break;
@@ -73,11 +76,12 @@ namespace MiFiSy_TPI
             Globals.SpriteBatch.Begin();
             switch (Globals.ActualPage)
             {
-                case Globals.AllPage.Accueil:
+                case Globals.AllPage.Home:
+                    Globals.home.Draw();
                     break;
-                case Globals.AllPage.Jeu:
+                case Globals.AllPage.Game:
                     ParticleManager.Draw();
-                    _gameManager.Draw();
+                    Globals.GameManager.Draw();
                     break;
                 default:
                     break;
