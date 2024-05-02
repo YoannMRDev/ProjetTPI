@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using MiFiSy_TPI.ParticleCreator;
 using NAudio.Midi;
 
@@ -14,13 +16,13 @@ namespace MiFiSy_TPI.GameElement
         private MidiIn _midi;
         private bool _isConnected;
         private GameManager _gameManager;
+        private SpriteFont _font;
 
-        public bool IsConnected { get => _isConnected; set => _isConnected = value; }
-
-        public JamstikMidiListener(GameManager gameManager)
+        public JamstikMidiListener(GameManager gameManager, SpriteFont font)
         {
+            _font = font;
             _gameManager = gameManager;
-            IsConnected = false;
+            _isConnected = false;
             if (MidiIn.NumberOfDevices == 0)
             {
                 Debug.Print("Aucun périphérique MIDI d'entrée n'a été trouvé.");
@@ -38,12 +40,12 @@ namespace MiFiSy_TPI.GameElement
                         _midi = new MidiIn(i);
                         _midi.MessageReceived += MidiIn_MessageReceived;
                         _midi.Start();
-                        IsConnected = true;
+                        _isConnected = true;
                         break;
                     }
                 }
 
-                if (!IsConnected)
+                if (!_isConnected)
                 {
                     Debug.Print("Aucun 'Jamstick' trouvé");
                 }
@@ -71,6 +73,14 @@ namespace MiFiSy_TPI.GameElement
                         _gameManager.CreateParticleRain(noteEvent.Velocity);
                     }
                 }
+            }
+        }
+
+        public void DrawErrorNotConnected()
+        {
+            if (!_isConnected)
+            {
+                Globals.SpriteBatch.DrawString(_font, "Aucune guitare MIDI connecte", new Vector2(Globals.ScreenWidth / 2, Globals.ScreenHeight / 2), Color.Red);
             }
         }
     }

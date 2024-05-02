@@ -39,7 +39,6 @@ namespace MiFiSy_TPI
                 
             new Config();
             Globals.GameManager = new GameManager(true);
-            _jamstikMidiListener = new JamstikMidiListener(Globals.GameManager);
             Globals.home = new Home();
             base.Initialize();
         }
@@ -48,6 +47,8 @@ namespace MiFiSy_TPI
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             Globals.SpriteBatch = _spriteBatch;
+            _jamstikMidiListener = new JamstikMidiListener(Globals.GameManager, Content.Load<SpriteFont>("Font/fontErrorMidi"));
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -77,6 +78,7 @@ namespace MiFiSy_TPI
             switch (Globals.ActualPage)
             {
                 case Globals.AllPage.Home:
+                    _jamstikMidiListener.DrawErrorNotConnected();
                     Globals.home.Draw();
                     break;
                 case Globals.AllPage.Game:
