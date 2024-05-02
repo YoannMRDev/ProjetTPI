@@ -18,7 +18,7 @@ namespace MiFiSy_TPI.GameElement
 
         public Home()
         {
-            _btnPlay = new Button(new Vector2(0.3f, 0.5f), 0.1f, 0.05f, "Libre", Color.Gray, Color.White, "play");
+            _btnPlay = new Button(new Vector2(0.3f, 0.5f), 0.17f, 0.05f, "Commencer en mode libre", Color.Gray, Color.White, "play");
             _lstBtnReplay = new List<Button>();
             _lstBtnMusic = new List<Button>();
 
@@ -56,7 +56,7 @@ namespace MiFiSy_TPI.GameElement
                     {
                         Button btnSelected = _lstBtnMusic.Find(x => x.Text == Globals.MusicSelectedName);
                         btnSelected.TextColor = Color.White;
-
+                        Globals.MusicSelectedName = "";
                         if (btnSelected.Text == btnMusic.Text)
                         {
                             changeOk = false;
