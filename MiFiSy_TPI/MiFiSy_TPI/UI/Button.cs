@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MiFiSy_TPI.GameElement;
+using MiFiSy_TPI.ParticleCreator;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,11 +93,17 @@ namespace MiFiSy_TPI.UI
                 {
                     case "goBack":
                         // Retour à l'accueil
+                        Globals.LstFirework.Clear();
+                        ParticleManager.ClearParticle();
                         Globals.MusicSelectedName = "";
                         Globals.home = new Home();
                         Globals.ActualPage = Globals.AllPage.Home;
                         break;
                     case "playReplay":
+                        Globals.LstFirework.Clear();
+                        ParticleManager.ClearParticle();
+                        IsPressed = true;
+                        break;
                     case "addMusic":
                     case "save":
                         IsPressed = true;

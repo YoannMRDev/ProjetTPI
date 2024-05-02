@@ -77,7 +77,15 @@ namespace MiFiSy_TPI.GameElement
             if (Mode)
             {
                 _timerLauch += Globals.TotalSeconds;
-                Globals.LstFirework.ForEach(x => x.Update());
+                try
+                {
+                    Globals.LstFirework.ForEach(x => x.Update());
+
+                }
+                catch (InvalidOperationException)
+                {
+                    
+                }
                 _saveButton.Update();
 
                 if (_saveButton.IsPressed)

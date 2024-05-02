@@ -15,13 +15,11 @@ namespace MiFiSy_TPI.GameElement
     {
         private MidiIn _midi;
         private bool _isConnected;
-        private GameManager _gameManager;
         private SpriteFont _font;
 
-        public JamstikMidiListener(GameManager gameManager, SpriteFont font)
+        public JamstikMidiListener(SpriteFont font)
         {
             _font = font;
-            _gameManager = gameManager;
             _isConnected = false;
             if (MidiIn.NumberOfDevices == 0)
             {
@@ -57,20 +55,23 @@ namespace MiFiSy_TPI.GameElement
         /// </summary>
         private void MidiIn_MessageReceived(object sender, MidiInMessageEventArgs e)
         {
-            MidiEvent midiEvent = MidiEvent.FromRawMessage(e.RawMessage);
-            if (midiEvent is NoteEvent noteEvent)
+            if (Globals.ActualPage == Globals.AllPage.Game && Globals.GameManager.Mode)
             {
-                if (noteEvent.CommandCode == MidiCommandCode.NoteOn)
+                MidiEvent midiEvent = MidiEvent.FromRawMessage(e.RawMessage);
+                if (midiEvent is NoteEvent noteEvent)
                 {
-                    // Corde 1 jouée
-                    if (noteEvent.Channel - 1 == 1)
+                    if (noteEvent.CommandCode == MidiCommandCode.NoteOn)
                     {
-                        _gameManager.CreateComete(noteEvent.Velocity);
-                    }
-                    // Corde 2 jouée
-                    else if (noteEvent.Channel - 1 == 2)
-                    {
-                        _gameManager.CreateParticleRain(noteEvent.Velocity);
+                        // Corde 1 jouée
+                        if (noteEvent.Channel - 1 == 1)
+                        {
+                            Globals.GameManager.CreateComete(noteEvent.Velocity);
+                        }
+                        // Corde 2 jouée
+                        else if (noteEvent.Channel - 1 == 2)
+                        {
+                            Globals.GameManager.CreateParticleRain(noteEvent.Velocity);
+                        }
                     }
                 }
             }

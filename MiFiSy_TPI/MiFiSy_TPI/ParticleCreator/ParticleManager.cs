@@ -63,5 +63,11 @@ namespace MiFiSy_TPI.ParticleCreator
                 Debug.Print("Ajout de particules pendant le draw");
             }
         }
+
+        public static void ClearParticle()
+        {
+            _particleEmitters.Clear();
+            _particles.Clear();
+        }
     }
 }

@@ -51,12 +51,23 @@ namespace MiFiSy_TPI.GameElement
                 btnMusic.Update();
                 if (btnMusic.IsPressed)
                 {
+                    bool changeOk = true;
                     if (Globals.MusicSelectedName != "")
                     {
-                        _lstBtnMusic.Find(x => x.Text == Globals.MusicSelectedName).TextColor = Color.White;
+                        Button btnSelected = _lstBtnMusic.Find(x => x.Text == Globals.MusicSelectedName);
+                        btnSelected.TextColor = Color.White;
+
+                        if (btnSelected.Text == btnMusic.Text)
+                        {
+                            changeOk = false;
+                        }
                     }
-                    Globals.MusicSelectedName = btnMusic.Text;
-                    btnMusic.TextColor = Color.Red;
+
+                    if (changeOk)
+                    {
+                        Globals.MusicSelectedName = btnMusic.Text;
+                        btnMusic.TextColor = Color.Red;
+                    }
                 }
             }
             foreach (Button btnReplay in _lstBtnReplay)

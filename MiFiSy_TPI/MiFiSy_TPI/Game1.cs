@@ -47,7 +47,7 @@ namespace MiFiSy_TPI
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             Globals.SpriteBatch = _spriteBatch;
-            _jamstikMidiListener = new JamstikMidiListener(Globals.GameManager, Content.Load<SpriteFont>("Font/fontErrorMidi"));
+            _jamstikMidiListener = new JamstikMidiListener(Content.Load<SpriteFont>("Font/fontErrorMidi"));
 
         }
 
