@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using MiFiSy_TPI.GameElement;
 using MiFiSy_TPI.GameElement.Firework;
 using MiFiSy_TPI.ParticleCreator;
@@ -23,8 +24,9 @@ namespace MiFiSy_TPI
 
         protected override void Initialize()
         {
-            _graphics.PreferredBackBufferWidth = 1920;
-            _graphics.PreferredBackBufferHeight = 1080;
+            _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
+            _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
+            _graphics.IsFullScreen = true;
             _graphics.ApplyChanges();
 
             Globals.ScreenWidth = _graphics.PreferredBackBufferWidth;
@@ -36,7 +38,9 @@ namespace MiFiSy_TPI
             Globals.MusicSelectedName = "";
             Globals.ReplaySelectedName = "";
             Globals.FontButton = Content.Load<SpriteFont>("Font/fontButton");
-                
+
+            MediaPlayer.IsRepeating = true;
+
             new Config();
             Globals.GameManager = new GameManager(true);
             Globals.home = new Home();
@@ -48,7 +52,6 @@ namespace MiFiSy_TPI
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             Globals.SpriteBatch = _spriteBatch;
             _jamstikMidiListener = new JamstikMidiListener(Content.Load<SpriteFont>("Font/fontErrorMidi"));
-
         }
 
         protected override void Update(GameTime gameTime)

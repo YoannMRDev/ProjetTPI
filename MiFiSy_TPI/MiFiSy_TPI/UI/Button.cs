@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using MiFiSy_TPI.GameElement;
 using MiFiSy_TPI.ParticleCreator;
 using System;
@@ -93,6 +94,7 @@ namespace MiFiSy_TPI.UI
                 {
                     case "goBack":
                         // Retour à l'accueil
+                        MediaPlayer.Stop();
                         Globals.LstFirework.Clear();
                         ParticleManager.ClearParticle();
                         Globals.MusicSelectedName = "";

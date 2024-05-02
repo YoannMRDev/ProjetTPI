@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using MiFiSy_TPI.GameElement.Firework;
 using MiFiSy_TPI.ParticleCreator;
 using MiFiSy_TPI.UI;
@@ -7,6 +8,7 @@ using SharpDX.Direct3D9;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,7 @@ namespace MiFiSy_TPI.GameElement
         private Button _saveButton;
         private List<Mortar> _lstMortar;
         private float _timerLauch;
+        private Song _music;
 
         // Message après sauvegarde
         private float _timerSave;
@@ -42,7 +45,10 @@ namespace MiFiSy_TPI.GameElement
             {
                 if (musiqueName != "")
                 {
-                    // Charge la musique
+                    // Charge la musique sans Content et joue la musique
+                    string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Config.PATH_MUSIC, musiqueName);
+                    _music = Song.FromUri(Path.GetFileName(fullPath), new Uri(fullPath));
+                    MediaPlayer.Play(_music);
                 }
                 _saveButton = new Button(new Vector2(0.89f, 0.01f), 0.1f, 0.05f, "Sauvegarder", Color.Gray, Color.White, "save");
             }
@@ -113,7 +119,7 @@ namespace MiFiSy_TPI.GameElement
                     Vector2 emitPos = _lstMortar[nbMortar].Position;
                     emitPos.X += _lstMortar[nbMortar].Width / 2;
                     Globals.LstFirework.Add(new Comet(emitPos, _lstMortar[nbMortar].Angle, 400, 1.5f, _timerLauch));
-                    //Globals.LstFirework.Add(new ParticleRain(80, 1.5f, _timerLauch));
+                    Globals.LstFirework.Add(new ParticleRain(80, 1.5f, _timerLauch));
                 }
             }
             else
@@ -134,7 +140,7 @@ namespace MiFiSy_TPI.GameElement
                     new XAttribute("creationDate", currentDate.ToString("yyyy-MM-dd")),
                     new XAttribute("author", Config.AUTHOR_FILE),
                     new XElement("Audio",
-                        new XAttribute("track", Config.PATH_MUSIC)
+                        new XAttribute("track", Globals.MusicSelectedName)
                     ),
                     new XElement("Background",
                         new XAttribute("img", Config.PATH_IMG)
@@ -250,7 +256,7 @@ namespace MiFiSy_TPI.GameElement
                 _saveButton.Draw();
                 if (showMessageSave)
                 {
-                    Globals.SpriteBatch.DrawString(Globals.FontButton, "Sauvegarde effectué", new Vector2(0.5f * Globals.ScreenWidth, 0.5f * Globals.ScreenHeight), Color.Red);
+                    Globals.SpriteBatch.DrawString(Globals.FontButton, "Sauvegarde effectue", new Vector2(0.5f * Globals.ScreenWidth, 0.5f * Globals.ScreenHeight), Color.Red);
                 }
             }
             else
