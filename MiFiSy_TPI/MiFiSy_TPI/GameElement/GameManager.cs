@@ -167,7 +167,7 @@ namespace MiFiSy_TPI.GameElement
                     new XAttribute(ATTRIBUTE_AUTHOR, Config.AUTHOR_FILE),
                     new XAttribute(ATTRIBUTE_TIME_END, _timerLauch.ToString().Replace(".", ",")),
                     new XElement(ELEMENT_AUDIO,
-                        new XAttribute(ATTRIBUTE_TRACK, Globals.MusicSelectedName)
+                        new XAttribute(ATTRIBUTE_TRACK, Config.PATH_MUSIC + Globals.MusicSelectedName)
                     ),
                     new XElement(ELEMENT_BACKGROUND,
                         new XAttribute(ATTRIBUTE_IMG, Config.PATH_IMG)

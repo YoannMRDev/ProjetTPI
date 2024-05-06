@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MiFiSy_TPI.GameElement
+namespace MiFiSy_TPI.UI
 {
     internal class Mortar
     {
@@ -23,7 +23,7 @@ namespace MiFiSy_TPI.GameElement
         public float Angle { get => _angle; set => _angle = value; }
         public float Height { get => _height; set => _height = value; }
 
-        public Mortar(Vector2 position, float width, float height, float angle ,Color color)
+        public Mortar(Vector2 position, float width, float height, float angle, Color color)
         {
             Position = position;
             _color = color;
@@ -61,7 +61,7 @@ namespace MiFiSy_TPI.GameElement
 
         public void Draw()
         {
-            Globals.SpriteBatch.Draw(_texture, Rectangle, null ,_color, Angle, Vector2.Zero, SpriteEffects.None, 0);
+            Globals.SpriteBatch.Draw(_texture, Rectangle, null, _color, Angle, Vector2.Zero, SpriteEffects.None, 0);
         }
     }
 }
