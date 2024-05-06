@@ -1,8 +1,8 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
-using MiFiSy_TPI.GameElement;
-using MiFiSy_TPI.GameElement.Firework;
+using MiFiSy_TPI.Firework;
+using MiFiSy_TPI.Manager;
 using MiFiSy_TPI.ParticleCreator;
 using System.Collections.Generic;
 /*

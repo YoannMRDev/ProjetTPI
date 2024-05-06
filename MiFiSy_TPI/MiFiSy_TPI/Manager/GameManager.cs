@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
-using MiFiSy_TPI.GameElement.Firework;
+using MiFiSy_TPI.Firework;
 using MiFiSy_TPI.UI;
 using System;
 using System.Collections.Generic;
@@ -14,7 +14,7 @@ using System.Xml.Linq;
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Classe de gestion du jeu libre et replay
  */
-namespace MiFiSy_TPI.GameElement
+namespace MiFiSy_TPI.Manager
 {
     internal class GameManager
     {
@@ -154,7 +154,7 @@ namespace MiFiSy_TPI.GameElement
         /// <param name="mortar"></param>
         public void AddMortarFromXElementToListMortar(XElement mortar)
         {
-            _lstMortar.Add(new Mortar(new Vector2(float.Parse(mortar.Attribute(ATTRIBUTE_POSITION_X).Value), float.Parse(mortar.Attribute(ATTRIBUTE_POSITION_Y).Value)), float.Parse(mortar.Attribute(ATTRIBUTE_WIDTH).Value), 
+            _lstMortar.Add(new Mortar(new Vector2(float.Parse(mortar.Attribute(ATTRIBUTE_POSITION_X).Value), float.Parse(mortar.Attribute(ATTRIBUTE_POSITION_Y).Value)), float.Parse(mortar.Attribute(ATTRIBUTE_WIDTH).Value),
                 float.Parse(mortar.Attribute(ATTRIBUTE_HEIGHT).Value), float.Parse(mortar.Attribute(ATTRIBUTE_ANGLE).Value), Color.White));
         }
 
@@ -339,7 +339,7 @@ namespace MiFiSy_TPI.GameElement
                         float positionY = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_POSITION_Y).Value);
                         float speed = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_SPEED).Value);
                         float lifespan = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_LIFESPAN).Value);
-                        
+
                         string fireworkType = firework.Attribute(ATTRIBUTE_TYPE).Value;
                         if (fireworkType == ATTRIBUTE_TYPE_COMET)
                         {
@@ -391,7 +391,7 @@ namespace MiFiSy_TPI.GameElement
 
                 // Affiche les données du replay
                 Globals.SpriteBatch.DrawString(Globals.FontButton, $"Nom de la sequence : {_file.Attribute(ATTRIBUTE_NAME).Value}", new Vector2(0.75f * Globals.ScreenWidth, 0.05f * Globals.ScreenHeight), Color.White);
-                Globals.SpriteBatch.DrawString(Globals.FontButton, $"Auteur : {_file.Attribute(ATTRIBUTE_AUTHOR).Value}" ,new Vector2(0.75f * Globals.ScreenWidth, 0.1f * Globals.ScreenHeight), Color.White);
+                Globals.SpriteBatch.DrawString(Globals.FontButton, $"Auteur : {_file.Attribute(ATTRIBUTE_AUTHOR).Value}", new Vector2(0.75f * Globals.ScreenWidth, 0.1f * Globals.ScreenHeight), Color.White);
                 Globals.SpriteBatch.DrawString(Globals.FontButton, $"Date : {_file.Attribute(ATTRIBUTE_CREATION_DATE).Value}", new Vector2(0.75f * Globals.ScreenWidth, 0.15f * Globals.ScreenHeight), Color.White);
 
                 // Affiche un message de fin de replay
