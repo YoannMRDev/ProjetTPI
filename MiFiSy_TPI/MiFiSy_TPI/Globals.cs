@@ -5,6 +5,7 @@ using MiFiSy_TPI.GameElement;
 using MiFiSy_TPI.GameElement.Firework;
 using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace MiFiSy_TPI
 {
@@ -42,6 +43,10 @@ namespace MiFiSy_TPI
 
         public static GameManager GameManager { get; set; }
 
+        /// <summary>
+        /// Liste de feu d'artifice de la séquence (mode libre)
+        /// </summary>
+        public static List<IFirework> LstFirework { get; set; }
 
         public static void Update(GameTime gt)
         {
@@ -71,8 +76,19 @@ namespace MiFiSy_TPI
         }
 
         /// <summary>
-        /// Liste de feu d'artifice de la séquence (mode libre)
+        /// Méthode pour récupérer la couleur à partir d'un élément XML
         /// </summary>
-        public static List<IFirework> LstFirework {  get; set; }
+        /// <param name="colorElement">XElement contenant les attributs "r", "g" et "b"</param>
+        public static Color GetColorFromElement(XElement colorElement)
+        {
+            if (colorElement.Attribute("r") != null && colorElement.Attribute("g") != null && colorElement.Attribute("b") != null)
+            {
+                int r = Convert.ToInt32(colorElement.Attribute("r").Value);
+                int g = Convert.ToInt32(colorElement.Attribute("g").Value);
+                int b = Convert.ToInt32(colorElement.Attribute("b").Value);
+                return new Color(r, g, b);
+            }
+            return Color.White;
+        }
     }
 }

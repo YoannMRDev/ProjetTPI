@@ -69,6 +69,50 @@ namespace MiFiSy_TPI.GameElement.Firework
             }
         }
 
+        public ParticleRain(Vector2 position, float speed, float lifespan, Color colorStart, Color colorEnd, float size, float nbParticle)
+        {
+            LaunchTime = 0f;
+            Lifespan = lifespan;
+            StartSpeed = speed;
+
+            _timerLife = 0;
+            StartPosition = position;
+            _lstParticlesEmitter = new List<ParticleEmitter>();
+
+            for (int i = 1; i <= nbParticle; i++)
+            {
+                float angle = 360 / nbParticle * i;
+                float newSpeed = Globals.RandomFloat(0, speed);
+                ParticleEmitterData particleEmitterData = new ParticleEmitterData()
+                {
+                    interval = 0.01f,
+                    emitCount = 1,
+                    lifespanMin = Lifespan,
+                    lifespanMax = Lifespan,
+                    angle = angle,
+                    decreasedLifespan = true,
+                    nbDecreasedLifespan = 0.2f,
+                    speedMin = newSpeed,
+                    speedMax = newSpeed,
+                    hasGravity = true,
+                    particleData = new ParticleData()
+                    {
+                        angle = angle,
+                        speed = newSpeed,
+                        colorStart = colorStart,
+                        colorEnd = colorEnd,
+                        sizeStart = size,
+                        sizeEnd = size,
+                    }
+                };
+
+                ParticleEmitter p = new ParticleEmitter(StartPosition, particleEmitterData);
+                ParticleManager.AddParticleEmitter(p);
+                _lstParticlesEmitter.Add(p);
+            }
+        }
+
+
         public void Update()
         {
             // Diminue la vitesse des particules

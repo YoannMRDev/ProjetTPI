@@ -77,6 +77,54 @@ namespace MiFiSy_TPI.GameElement.Firework
             ParticleManager.AddParticleEmitter(_emitter);
         }
 
+        public Comet(Vector2 position, float angle, float speed, float lifespan, Color colorStart, Color colorEnd, float mainSize, float otherSize)
+        {
+            LaunchTime = 0f;
+            StartPosition = position;
+            StartAngle = angle;
+            StartSpeed = speed;
+            Lifespan = lifespan;
+            _timerLife = 0;
+
+            ParticleData particleData = new ParticleData()
+            {
+                angle = StartAngle,
+                speed = StartSpeed,
+                lifespan = Lifespan,
+                colorStart = colorStart,
+                colorEnd = colorEnd,
+                sizeStart = mainSize,
+                sizeEnd = mainSize,
+            };
+            _mainParticle = new Particle(position, particleData);
+            ParticleManager.AddParticle(_mainParticle);
+
+            ParticleEmitterData ped = new ParticleEmitterData()
+            {
+                interval = 0.01f,
+                emitCount = 5,
+                lifespanMin = Lifespan,
+                lifespanMax = Lifespan,
+                angle = StartAngle,
+                randomPosX = true,
+                intervalPos = 0.003f,
+                decreasedLifespan = true,
+                nbDecreasedLifespan = 0.05f,
+                speedMin = StartSpeed,
+                speedMax = StartSpeed,
+                particleData = new ParticleData()
+                {
+                    colorStart = colorStart,
+                    colorEnd = colorEnd,
+                    sizeStart = otherSize,
+                    sizeEnd = otherSize,
+                }
+            };
+            _emitter = new ParticleEmitter(_mainParticle.Position, ped);
+            ParticleManager.AddParticleEmitter(_emitter);
+        }
+
+
         public void Update()
         {
             if (_emitter.Data.particleData.speed != _mainParticle.Data.speed || _emitter.Data.particleData.angle != _mainParticle.Data.angle)

@@ -24,8 +24,8 @@ namespace MiFiSy_TPI
         public static string PATH_IMG { get => _configElement.Descendants("PathImg").FirstOrDefault().Value; }
         public static string PATH_SAVE_SEQUENCE { get => _configElement.Descendants("PathSaveDequence").FirstOrDefault().Value; }
         public static List<XElement> ALL_MORTAR { get => _configElement.Descendants("Mortar").ToList(); }
-        public static Color COLOR_START { get => GetColorFromElement(_configElement.Descendants("ColorStart").FirstOrDefault()); }
-        public static Color COLOR_END { get => GetColorFromElement(_configElement.Descendants("ColorEnd").FirstOrDefault()); }
+        public static Color COLOR_START { get => Globals.GetColorFromElement(_configElement.Descendants("ColorStart").FirstOrDefault()); }
+        public static Color COLOR_END { get => Globals.GetColorFromElement(_configElement.Descendants("ColorEnd").FirstOrDefault()); }
         public static int PARTICLE_RAIN_SIZE { get => Convert.ToInt32(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("sizeParticle").Value); }
         public static int PARTICLE_RAIN_NB { get => Convert.ToInt32(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("nbParticle").Value); }
         public static float PARTICLE_RAIN_LIFESPAN { get => float.Parse(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("lifeSpan").Value); }
@@ -35,21 +35,5 @@ namespace MiFiSy_TPI
         public static int COMET_OTHER_SIZE { get => Convert.ToInt32(_configElement.Descendants("Comet").FirstOrDefault().Attribute("sizeOtherParticle").Value); }
         public static float COMET_DEFAULT_SPEED { get => float.Parse(_configElement.Descendants("Comet").FirstOrDefault().Attribute("defaultSpeed").Value); }
         public static float COMET_DEFAULT_LIFESPAN { get => float.Parse(_configElement.Descendants("Comet").FirstOrDefault().Attribute("defaultLifespan").Value); }
-        
-        /// <summary>
-        /// Méthode pour récupérer la couleur à partir d'un élément XML
-        /// </summary>
-        /// <param name="colorElement">XElement contenant les attributs "r", "g" et "b"</param>
-        private static Color GetColorFromElement(XElement colorElement)
-        {
-            if (colorElement.Attribute("r") != null && colorElement.Attribute("g") != null && colorElement.Attribute("b") != null)
-            {
-                int r = Convert.ToInt32(colorElement.Attribute("r").Value);
-                int g = Convert.ToInt32(colorElement.Attribute("g").Value);
-                int b = Convert.ToInt32(colorElement.Attribute("b").Value);
-                return new Color(r, g, b);
-            }
-            return Color.White;
-        }
     }
 }

@@ -21,17 +21,12 @@ namespace MiFiSy_TPI.GameElement
         {
             _font = font;
             _isConnected = false;
-            if (MidiIn.NumberOfDevices == 0)
+
+            if (MidiIn.NumberOfDevices != 0)
             {
-                Debug.Print("Aucun périphérique MIDI d'entrée n'a été trouvé.");
-            }
-            else
-            {
-                Debug.Print("Liste des périphériques MIDI d'entrée :");
                 for (int i = 0; i < MidiIn.NumberOfDevices; i++)
                 {
                     MidiInCapabilities capabilities = MidiIn.DeviceInfo(i);
-                    Debug.Print($"ID: {i}, Device ID: {capabilities.ProductId}, Device Name: {capabilities.ProductName}");
                     // Connexion au Jamstik
                     if (capabilities.ProductName == "Jamstik")
                     {
@@ -41,11 +36,6 @@ namespace MiFiSy_TPI.GameElement
                         _isConnected = true;
                         break;
                     }
-                }
-
-                if (!_isConnected)
-                {
-                    Debug.Print("Aucun 'Jamstick' trouvé");
                 }
             }
         }
@@ -81,7 +71,7 @@ namespace MiFiSy_TPI.GameElement
         {
             if (!_isConnected)
             {
-                Globals.SpriteBatch.DrawString(_font, "Aucune guitare MIDI connecte", new Vector2(Globals.ScreenWidth / 2, Globals.ScreenHeight / 2), Color.Red);
+                Globals.SpriteBatch.DrawString(_font, "Aucune entree MIDI trouve", new Vector2(Globals.ScreenWidth / 2, Globals.ScreenHeight / 2), Color.Red);
             }
         }
     }

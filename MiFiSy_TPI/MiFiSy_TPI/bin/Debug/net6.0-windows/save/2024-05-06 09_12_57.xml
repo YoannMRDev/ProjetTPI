@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FireworkSequence name="Sequence de feu d artifice" creationDate="2024-05-06" author="Yoann" timeEnd="1,7000017">
+  <Audio track="" />
+  <Background img="" />
+  <mortar positionX="0,1" positionY="0,85" width="0,025" height="0,15" angle="7,684939" />
+  <mortar positionX="0,3" positionY="0,85" width="0,025" height="0,15" angle="-0,55070686" />
+  <mortar positionX="0,5" positionY="0,85" width="0,025" height="0,15" angle="-5,634792" />
+  <mortar positionX="0,7" positionY="0,85" width="0,025" height="0,15" angle="0,014405251" />
+  <mortar positionX="0,9" positionY="0,85" width="0,025" height="0,15" angle="-8,457114" />
+  <Firework type="Comet" launchTime="0,38333413">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,014405251" speed="400" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="0,38333413">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,16847001" positionY="0,10248639" speed="80" lifeSpan="1,5" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="0,5166678">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="-8,457114" speed="400" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="0,5166678">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,28378755" positionY="0,35927925" speed="80" lifeSpan="1,5" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="0,6833349">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="-8,457114" speed="400" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="0,6833349">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,70123434" positionY="0,23831728" speed="80" lifeSpan="1,5" nbParticle="360" />
+  </Firework>
+</FireworkSequence>
