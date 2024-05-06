@@ -5,7 +5,7 @@
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Interface des particules pour n'avoir qu'une seule liste
  */
-namespace MiFiSy_TPI.GameElement.Firework
+namespace MiFiSy_TPI.Firework
 {
     public interface IFirework
     {

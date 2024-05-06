@@ -7,7 +7,7 @@ using NAudio.Midi;
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Classe pour gérer les entrés MIDI
  */
-namespace MiFiSy_TPI.GameElement
+namespace MiFiSy_TPI
 {
     internal class JamstikMidiListener
     {

@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Classe pour gérer la souris
  */
-namespace MiFiSy_TPI.GameElement
+namespace MiFiSy_TPI.Manager
 {
     internal class InputManager
     {

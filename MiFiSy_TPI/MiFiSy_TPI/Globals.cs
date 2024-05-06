@@ -1,8 +1,8 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using MiFiSy_TPI.GameElement;
-using MiFiSy_TPI.GameElement.Firework;
+using MiFiSy_TPI.Firework;
+using MiFiSy_TPI.Manager;
 using System;
 using System.Collections.Generic;
 using System.Xml.Linq;

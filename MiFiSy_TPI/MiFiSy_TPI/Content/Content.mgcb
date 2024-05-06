@@ -20,6 +20,13 @@
 /processorParam:TextureFormat=Compressed
 /build:Font/fontButton.spritefont
 
+#begin Font/fontErrorMidi.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Font/fontErrorMidi.spritefont
+
 #begin particle.png
 /importer:TextureImporter
 /processor:TextureProcessor

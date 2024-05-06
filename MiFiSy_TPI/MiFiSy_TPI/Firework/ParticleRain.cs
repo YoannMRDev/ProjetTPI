@@ -8,7 +8,7 @@ using System.Collections.Generic;
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Classe de création du feu d'artifice de la pluie de particules
  */
-namespace MiFiSy_TPI.GameElement.Firework
+namespace MiFiSy_TPI.Firework
 {
     public class ParticleRain : IFirework
     {
@@ -31,12 +31,12 @@ namespace MiFiSy_TPI.GameElement.Firework
         /// <param name="lifespan">durée de vie du feu d'artifice</param>
         /// <param name="launchTime">Le temps à laquelle l'effet a été crée, seulement utilisé pour la sauvegarde</param>
         /// <param name="distanceFromBorder">distance pour ne pas créer la particule en dehors ou sur le bord de l'écran</param>
-        public ParticleRain(float speed, float lifespan, float launchTime ,float distanceFromBorder = 100)
+        public ParticleRain(float speed, float lifespan, float launchTime, float distanceFromBorder = 100)
         {
             LaunchTime = launchTime;
             Lifespan = lifespan;
             StartSpeed = speed;
-            
+
             _timerLife = 0;
             // Position aléatoire du feu d'artifice sur la partie haute de l'écran
             StartPosition = new Vector2(Globals.RandomFloat(distanceFromBorder, Globals.ScreenWidth - distanceFromBorder) / Globals.ScreenWidth, Globals.RandomFloat(distanceFromBorder, Globals.ScreenHeight / 2) / Globals.ScreenHeight);

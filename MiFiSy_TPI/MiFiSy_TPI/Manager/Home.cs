@@ -10,7 +10,7 @@ using System.Xml.Linq;
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Classe de l'accueil
  */
-namespace MiFiSy_TPI.GameElement
+namespace MiFiSy_TPI.Manager
 {
     public class Home
     {

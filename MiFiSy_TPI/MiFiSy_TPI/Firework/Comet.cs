@@ -7,7 +7,7 @@ using MiFiSy_TPI.ParticleCreator.Structure;
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Classe de création du feu d'artifice de la comète
  */
-namespace MiFiSy_TPI.GameElement.Firework
+namespace MiFiSy_TPI.Firework
 {
     public class Comet : IFirework
     {
