@@ -1,14 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
 using MiFiSy_TPI.ParticleCreator;
 using MiFiSy_TPI.ParticleCreator.Structure;
-using SharpDX.X3DAudio;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Classe de création du feu d'artifice de la comète
+ */
 namespace MiFiSy_TPI.GameElement.Firework
 {
     public class Comet : IFirework
@@ -17,7 +15,6 @@ namespace MiFiSy_TPI.GameElement.Firework
         private ParticleEmitter _emitter;
         private float _lifespan;
         private float _timerLife;
-
         private float _launchTime;
         private Vector2 _startPosition;
         private float _startAngle;
@@ -30,6 +27,15 @@ namespace MiFiSy_TPI.GameElement.Firework
         public float StartSpeed { get => _startSpeed; set => _startSpeed = value; }
         public float Lifespan { get => _lifespan; set => _lifespan = value; }
 
+
+        /// <summary>
+        /// Constructeur de la classe utilisée dans le jeu libre : créer la comète en fonction de paramètre du fichier de configuration
+        /// </summary>
+        /// <param name="position">Position de départ de la comète</param>
+        /// <param name="angle">angle de la comète</param>
+        /// <param name="speed">vitesse de la comète</param>
+        /// <param name="lifespan">durée de vie de la comète</param>
+        /// <param name="launchTime">Le temps à laquelle l'effet a été crée, seulement utilisé pour la sauvegarde</param>
         public Comet(Vector2 position, float angle, float speed, float lifespan, float launchTime)
         {
             LaunchTime = launchTime;
@@ -39,6 +45,7 @@ namespace MiFiSy_TPI.GameElement.Firework
             Lifespan = lifespan;
             _timerLife = 0;
 
+            // Créer la particule principale, la tête
             ParticleData particleData = new ParticleData()
             {
                 angle = StartAngle,
@@ -51,7 +58,8 @@ namespace MiFiSy_TPI.GameElement.Firework
             };
             _mainParticle = new Particle(position, particleData);
             ParticleManager.AddParticle(_mainParticle);
-            
+
+            // créer l'émetteur qui suit la tête, la queue
             ParticleEmitterData ped = new ParticleEmitterData()
             {
                 interval = 0.01f,
@@ -77,6 +85,17 @@ namespace MiFiSy_TPI.GameElement.Firework
             ParticleManager.AddParticleEmitter(_emitter);
         }
 
+        /// <summary>
+        /// Constructeur de la classe utilisée dans le jeu replay : créer la comète en fonction de paramètre du fichier qui est rejoué
+        /// </summary>
+        /// <param name="position">Position de départ de la comète</param>
+        /// <param name="angle">angle de la comète</param>
+        /// <param name="speed">vitesse de la comète</param>
+        /// <param name="lifespan">durée de vie de la comète</param>
+        /// <param name="colorStart">couleur de départ de la comète</param>
+        /// <param name="colorEnd">couleur de fin de la comète</param>
+        /// <param name="mainSize">taille des particules de la tête</param>
+        /// <param name="otherSize">taille des particules de la queue</param>
         public Comet(Vector2 position, float angle, float speed, float lifespan, Color colorStart, Color colorEnd, float mainSize, float otherSize)
         {
             LaunchTime = 0f;
@@ -86,6 +105,7 @@ namespace MiFiSy_TPI.GameElement.Firework
             Lifespan = lifespan;
             _timerLife = 0;
 
+            // Créer la particule principale, la tête
             ParticleData particleData = new ParticleData()
             {
                 angle = StartAngle,
@@ -99,6 +119,7 @@ namespace MiFiSy_TPI.GameElement.Firework
             _mainParticle = new Particle(position, particleData);
             ParticleManager.AddParticle(_mainParticle);
 
+            // créer l'émetteur qui suit la tête, la queue
             ParticleEmitterData ped = new ParticleEmitterData()
             {
                 interval = 0.01f,
@@ -124,19 +145,8 @@ namespace MiFiSy_TPI.GameElement.Firework
             ParticleManager.AddParticleEmitter(_emitter);
         }
 
-
         public void Update()
         {
-            if (_emitter.Data.particleData.speed != _mainParticle.Data.speed || _emitter.Data.particleData.angle != _mainParticle.Data.angle)
-            {
-                // Met à jour les données entre tête et queue
-                ParticleEmitterData newData = _emitter.Data;
-                newData.particleData.angle = _mainParticle.Data.angle;
-                newData.particleData.speed = _mainParticle.Data.speed;
-                _emitter.Data = newData;
-            }
-
-            // Supprime en fin de vie
             _timerLife += Globals.TotalSeconds;
             if (_timerLife >= Lifespan)
             {

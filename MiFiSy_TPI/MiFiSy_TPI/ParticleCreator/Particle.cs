@@ -1,14 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using MiFiSy_TPI.ParticleCreator.Structure;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Class d'une particule (vient de : https://www.youtube.com/watch?v=-4_kj_gyWRY)
+ */
 namespace MiFiSy_TPI.ParticleCreator
 {
     internal class Particle
@@ -60,7 +59,7 @@ namespace MiFiSy_TPI.ParticleCreator
                 return;
             }
 
-            // Calcule le lifespan
+            // Calcule le temps de vie restant
             _lifespanAmount = _lifespanLeft / _data.lifespan;
 
             // Melange la couleur finale et la couleur initiale en fonction du lifespan

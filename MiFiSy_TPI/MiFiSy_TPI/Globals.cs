@@ -6,19 +6,30 @@ using MiFiSy_TPI.GameElement.Firework;
 using System;
 using System.Collections.Generic;
 using System.Xml.Linq;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Page contenant des valeurs static nécéssaires dans plusieurs pages
+ */
 namespace MiFiSy_TPI
 {
     internal static class Globals
     {
         public static float TotalSeconds { get; set; }
 
+        /// <summary>
+        /// Enum de toutes les pages de l'application
+        /// </summary>
         public enum AllPage
         {
             Home,
             Game,
         }
 
+        /// <summary>
+        /// Page actuel
+        /// </summary>
         public static AllPage ActualPage {  get; set; }
 
         public static ContentManager Content { get; set; }
@@ -31,20 +42,24 @@ namespace MiFiSy_TPI
 
         public static Random Random { get; set; } = new Random();
 
+        /// <summary>
+        /// Largeur de l'écran
+        /// </summary>
         public static int ScreenWidth { get; set; }
 
+        /// <summary>
+        /// Hauteur de l'écran
+        /// </summary>
         public static int ScreenHeight { get; set; }
 
         public static string MusicSelectedName { get; set; }
-
-        public static string ReplaySelectedName { get; set; }
 
         public static Home home { get; set; }
 
         public static GameManager GameManager { get; set; }
 
         /// <summary>
-        /// Liste de feu d'artifice de la séquence (mode libre)
+        /// Liste de feu d'artifice
         /// </summary>
         public static List<IFirework> LstFirework { get; set; }
 

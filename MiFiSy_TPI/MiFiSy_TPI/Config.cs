@@ -2,10 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Class permettant de récupérer en static toutes les données du fichier de configuration
+ */
 namespace MiFiSy_TPI
 {
     internal class Config

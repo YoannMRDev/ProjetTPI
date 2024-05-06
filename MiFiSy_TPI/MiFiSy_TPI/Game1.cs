@@ -1,12 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using MiFiSy_TPI.GameElement;
 using MiFiSy_TPI.GameElement.Firework;
 using MiFiSy_TPI.ParticleCreator;
 using System.Collections.Generic;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Page principale de l'application
+ */
 namespace MiFiSy_TPI
 {
     public class Game1 : Game
@@ -24,6 +28,7 @@ namespace MiFiSy_TPI
 
         protected override void Initialize()
         {
+            // taille de l'application en fonction de la taille de l'écran
             _graphics.PreferredBackBufferWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             _graphics.PreferredBackBufferHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
             _graphics.IsFullScreen = false;
@@ -36,9 +41,9 @@ namespace MiFiSy_TPI
             Globals.ActualPage = Globals.AllPage.Home;
             Globals.LstFirework = new List<IFirework>();
             Globals.MusicSelectedName = "";
-            Globals.ReplaySelectedName = "";
             Globals.FontButton = Content.Load<SpriteFont>("Font/fontButton");
 
+            // Permet de mettre en boucle les musiques
             MediaPlayer.IsRepeating = true;
 
             new Config();
@@ -60,17 +65,16 @@ namespace MiFiSy_TPI
             InputManager.Update();
             switch (Globals.ActualPage)
             {
+                // Page d'accueil
                 case Globals.AllPage.Home:
                     Globals.home.Update();
                     break;
+                // Page de jeu
                 case Globals.AllPage.Game:
                     ParticleManager.Update();
                     Globals.GameManager.Update();
                     break;
-                default:
-                    break;
             }
-
             base.Update(gameTime);
         }
 
@@ -80,15 +84,15 @@ namespace MiFiSy_TPI
             Globals.SpriteBatch.Begin();
             switch (Globals.ActualPage)
             {
+                // Page d'accueil
                 case Globals.AllPage.Home:
                     _jamstikMidiListener.DrawErrorNotConnected();
                     Globals.home.Draw();
                     break;
+                // Page de jeu
                 case Globals.AllPage.Game:
                     Globals.GameManager.Draw();
                     ParticleManager.Draw();
-                    break;
-                default:
                     break;
             }
             Globals.SpriteBatch.End();

@@ -1,13 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using MiFiSy_TPI.UI;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Classe de l'accueil
+ */
 namespace MiFiSy_TPI.GameElement
 {
     public class Home
@@ -16,6 +18,9 @@ namespace MiFiSy_TPI.GameElement
         private Dictionary<string, Button> _lstReplay;
         private List<Button> _lstBtnMusic;
 
+        /// <summary>
+        /// Constructeur de la classe, récupère les musiques, les séquences sauvegardés des dossiers défini dans le fichier de configuration
+        /// </summary>
         public Home()
         {
             _btnPlay = new Button(new Vector2(0.3f, 0.5f), 0.17f, 0.05f, "Commencer en mode libre", Color.Gray, Color.White, "play");
@@ -63,6 +68,7 @@ namespace MiFiSy_TPI.GameElement
                         }
                     }
 
+                    // Change la couleur en rouge si c'est une nouvelle musique qui est séléctionné
                     if (changeOk)
                     {
                         Globals.MusicSelectedName = btnMusic.Text;
@@ -83,6 +89,9 @@ namespace MiFiSy_TPI.GameElement
             }
         }
 
+        /// <summary>
+        /// Affiche tous les éléments de l'accueil
+        /// </summary>
         public void Draw()
         {
             _btnPlay.Draw();

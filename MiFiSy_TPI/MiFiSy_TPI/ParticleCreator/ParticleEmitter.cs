@@ -1,13 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using MiFiSy_TPI.ParticleCreator.Structure;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Class d'une particule (vient de : https://www.youtube.com/watch?v=-4_kj_gyWRY)
+ */
 namespace MiFiSy_TPI.ParticleCreator
 {
     internal class ParticleEmitter
@@ -16,8 +14,6 @@ namespace MiFiSy_TPI.ParticleCreator
         private float _intervalLeft;
         private Vector2 _emitPosition;
         public bool destroy;
-        private float _timerGravity;
-        private float _defaultLifespan;
 
         private const float ANGLE_GRAVITY = 180;
 
@@ -29,8 +25,6 @@ namespace MiFiSy_TPI.ParticleCreator
             this.data = data;
             _intervalLeft = data.interval;
             destroy = false;
-            _timerGravity = 0;
-            _defaultLifespan = data.lifespanMax;
         }
 
         /// <summary>
@@ -58,7 +52,6 @@ namespace MiFiSy_TPI.ParticleCreator
 
         public void Update()
         {
-            _timerGravity += Globals.TotalSeconds;
             _intervalLeft -= Globals.TotalSeconds;
             if (_intervalLeft <= 0f)
             {
@@ -83,13 +76,11 @@ namespace MiFiSy_TPI.ParticleCreator
             {
                 if (data.angle > ANGLE_GRAVITY)
                 {
-                    //data.angle += (data.angle - ANGLE_GRAVITY) * (_defaultLifespan - _timerGravity) * Globals.TotalSeconds;
                     data.angle += data.nbGravity;
                 }
                 else if (data.angle < ANGLE_GRAVITY)
                 {
                     data.angle -= data.nbGravity;
-                    //data.angle -= (ANGLE_GRAVITY - data.angle) * (_defaultLifespan - _timerGravity) * Globals.TotalSeconds;
                 }
             }
         }

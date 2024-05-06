@@ -4,12 +4,12 @@ using Microsoft.Xna.Framework.Media;
 using MiFiSy_TPI.GameElement;
 using MiFiSy_TPI.ParticleCreator;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Class d'un bouton
+ */
 namespace MiFiSy_TPI.UI
 {
     internal class Button
@@ -124,6 +124,9 @@ namespace MiFiSy_TPI.UI
             }
         }
 
+        /// <summary>
+        /// Affiche le bouton
+        /// </summary>
         public void Draw()
         {
             Globals.SpriteBatch.Draw(_texture, Rectangle, Color.White);

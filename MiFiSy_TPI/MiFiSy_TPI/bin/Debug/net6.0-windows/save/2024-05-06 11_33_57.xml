@@ -1,0 +1,838 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FireworkSequence name="Sequence de feu d artifice" creationDate="2024-05-06" author="Yoann" timeEnd="43,249516">
+  <Audio track="" />
+  <Background img="" />
+  <mortar positionX="0,1" positionY="0,85" width="0,025" height="0,15" angle="-2,0037184" />
+  <mortar positionX="0,3" positionY="0,85" width="0,025" height="0,15" angle="-4,3571053" />
+  <mortar positionX="0,5" positionY="0,85" width="0,025" height="0,15" angle="-2,5212226" />
+  <mortar positionX="0,7" positionY="0,85" width="0,025" height="0,15" angle="0,0039834976" />
+  <mortar positionX="0,9" positionY="0,85" width="0,025" height="0,15" angle="5,796852" />
+  <Firework type="Comet" launchTime="2,9833338">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,3125" positionY="0,85" angle="-4,3571053" speed="91" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="3,2333336">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="154" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="3,5">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,90929973" positionY="0,2739821" speed="90" lifeSpan="0,65999997" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="3,7166665">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="231" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="3,9666662">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,82103145" positionY="0,24918249" speed="90" lifeSpan="0,48" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="4,1500015">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="91" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="4,3166704">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="49" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="4,383338">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,18259332" positionY="0,41624662" speed="90" lifeSpan="0,9" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="4,6000075">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="280" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="4,833344">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,19808188" positionY="0,2468875" speed="90" lifeSpan="0,35999998" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="5,0333467">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="105" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="5,266683">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,91408217" positionY="0,3865317" speed="90" lifeSpan="0,9" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="5,450019">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="91" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="5,4833527">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="42" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="5,700022">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,83140814" positionY="0,3211059" speed="90" lifeSpan="0,53999996" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="5,900025">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="294" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="6,1166945">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,535839" positionY="0,44574404" speed="90" lifeSpan="0,17999999" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="6,316697">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="63" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="7,2000422">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="217" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="7,216709">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,3125" positionY="0,85" angle="-4,3571053" speed="175" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="7,250043">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="154" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="7,2833767">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,3125" positionY="0,85" angle="-4,3571053" speed="140" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="7,3167105">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="112" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="7,3333774">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="105" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="7,3500443">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="105" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="7,383378">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="126" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="7,400045">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="140" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="7,4333787">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="294" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="8,650043">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="56" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="8,700042">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="77" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="8,750041">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="21" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,433364">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="280" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,533362">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,3125" positionY="0,85" angle="-4,3571053" speed="126" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,566695">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,3125" positionY="0,85" angle="-4,3571053" speed="98" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,600028">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="84" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,616694">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="84" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,650027">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,3125" positionY="0,85" angle="-4,3571053" speed="77" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,666694">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="98" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,68336">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,3125" positionY="0,85" angle="-4,3571053" speed="84" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,716693">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="91" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,733359">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="112" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,750026">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="119" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,783359">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="112" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="9,850024">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="91" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="10,816676">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,051285405" positionY="0,09845432" speed="90" lifeSpan="2,04" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="10,900008">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,29198197" positionY="0,4361806" speed="90" lifeSpan="1,86" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="10,933341">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,7984172" positionY="0,161828" speed="90" lifeSpan="1,68" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="10,950007">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,5495575" positionY="0,26318628" speed="90" lifeSpan="1,5" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,000007">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,6994988" positionY="0,12648489" speed="90" lifeSpan="1,92" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,016673">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,525572" positionY="0,36538386" speed="90" lifeSpan="1,9799999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,016673">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,27961734" positionY="0,23540014" speed="90" lifeSpan="1,8" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,0333395">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,820333" positionY="0,16845328" speed="90" lifeSpan="1,74" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,066672">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,4323143" positionY="0,29563236" speed="90" lifeSpan="1,92" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,083339">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,92717123" positionY="0,42477024" speed="90" lifeSpan="2,1" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,083339">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,780939" positionY="0,21024005" speed="90" lifeSpan="2,1" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,100005">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,67289495" positionY="0,44305012" speed="90" lifeSpan="1,86" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,116672">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,83779955" positionY="0,4792372" speed="90" lifeSpan="1,92" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,150004">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,8172695" positionY="0,24130753" speed="90" lifeSpan="1,68" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,183337">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,3941446" positionY="0,28258526" speed="90" lifeSpan="1,3199999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,250003">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,5378495" positionY="0,14526151" speed="90" lifeSpan="1,3199999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="11,283336">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,5430571" positionY="0,36383134" speed="90" lifeSpan="1,0799999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="13,716632">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,7730692" positionY="0,49097553" speed="90" lifeSpan="2,1" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="13,883296">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,87980926" positionY="0,10460763" speed="90" lifeSpan="1,4399999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="13,916629">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,34364504" positionY="0,46652776" speed="90" lifeSpan="1,3199999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="13,933295">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,050210048" positionY="0,19920143" speed="90" lifeSpan="1,1999999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="13,966628">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,75173223" positionY="0,34439382" speed="90" lifeSpan="1,0799999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="13,966628">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,19854464" positionY="0,15080316" speed="90" lifeSpan="1,02" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="13,9832945">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,6574062" positionY="0,14722946" speed="90" lifeSpan="2,1" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="13,999961">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,22172098" positionY="0,16752793" speed="90" lifeSpan="1,4399999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="14,033294">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,108883366" positionY="0,47172573" speed="90" lifeSpan="1,26" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="14,033294">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,5010741" positionY="0,24250145" speed="90" lifeSpan="1,4399999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="14,04996">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,2627484" positionY="0,13468759" speed="90" lifeSpan="1,4399999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="14,066627">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,54309934" positionY="0,10955299" speed="90" lifeSpan="1,26" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="14,066627">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,6003201" positionY="0,45084047" speed="90" lifeSpan="1,0799999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="14,083293">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,36876053" positionY="0,14383072" speed="90" lifeSpan="1,56" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="14,099959">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,80344737" positionY="0,3481825" speed="90" lifeSpan="1,4399999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="14,849948">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,2740364" positionY="0,077329636" speed="90" lifeSpan="1,26" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="15,116611">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,6350938" positionY="0,4456303" speed="90" lifeSpan="0,35999998" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="15,433272">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,6131961" positionY="0,14520566" speed="90" lifeSpan="0,84" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="15,833266">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,9385905" positionY="0,14439826" speed="90" lifeSpan="1,56" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="16,14993">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,81241196" positionY="0,08998163" speed="90" lifeSpan="1,5" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="16,299927">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,88285226" positionY="0,40950835" speed="90" lifeSpan="1,56" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="16,416592">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,6112648" positionY="0,31873986" speed="90" lifeSpan="0,65999997" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="16,733253">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,47346053" positionY="0,37222" speed="90" lifeSpan="1,68" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="16,999916">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,68364185" positionY="0,12456966" speed="90" lifeSpan="2,8799999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="17,249912">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,80983496" positionY="0,3387911" speed="90" lifeSpan="2,58" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="17,666573">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,65235966" positionY="0,37660196" speed="90" lifeSpan="2,28" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="17,966568">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,1343393" positionY="0,254277" speed="90" lifeSpan="3,24" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="18,216564">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,21391687" positionY="0,4025066" speed="90" lifeSpan="3,78" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="18,483227">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,564087" positionY="0,3884489" speed="90" lifeSpan="4,2" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="18,666557">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,23319206" positionY="0,3742718" speed="90" lifeSpan="1,26" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="22,266502">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,06313183" positionY="0,48844197" speed="90" lifeSpan="3,4199998" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="22,983158">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,7868493" positionY="0,40925425" speed="90" lifeSpan="1,1999999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="23,233154">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,082288586" positionY="0,12176069" speed="90" lifeSpan="0,78" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="24,083141">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,48973995" positionY="0,19281603" speed="90" lifeSpan="3,1799998" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="24,6498">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,3544305" positionY="0,39191005" speed="90" lifeSpan="3,12" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="25,399788">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,9109726" positionY="0,21301444" speed="90" lifeSpan="2,52" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="25,783115">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,26807365" positionY="0,37200606" speed="90" lifeSpan="2,1" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="26,149776">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,8126113" positionY="0,2840777" speed="90" lifeSpan="2,46" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="26,499771">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,81345975" positionY="0,30337736" speed="90" lifeSpan="1,9799999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="26,866432">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,4064746" positionY="0,494859" speed="90" lifeSpan="2,7" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="27,216427">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="161" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="27,549755">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="224" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="27,749752">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="63" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="27,883083">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="161" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="28,199745">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,20294099" positionY="0,24081437" speed="90" lifeSpan="2,6399999" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="28,399742">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,38985112" positionY="0,22837685" speed="90" lifeSpan="1,62" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="28,533073">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,5243818" positionY="0,3230417" speed="90" lifeSpan="1,92" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="28,866402">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,12924844" positionY="0,28445" speed="90" lifeSpan="1,8" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="29,183064">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="224" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="29,333061">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="42" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="29,466393">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="231" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="29,816387">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="42" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="29,949718">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="21" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="30,08305">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,68429464" positionY="0,31319758" speed="90" lifeSpan="1,26" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="30,349712">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,73194903" positionY="0,14073236" speed="90" lifeSpan="1,02" nbParticle="360" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="30,649708">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,8478114" positionY="0,339117" speed="90" lifeSpan="2,04" nbParticle="360" />
+  </Firework>
+  <Firework type="Comet" launchTime="30,933037">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="133" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="31,416363">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="133" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="31,583027">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="140" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="31,699692">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="35" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="32,016354">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,3125" positionY="0,85" angle="-4,3571053" speed="42" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="32,283016">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="203" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="34,716312">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="140" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="34,99964">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="322" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="35,43297">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="84" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="35,816296">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="231" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="36,232956">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="49" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="36,44962">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,3125" positionY="0,85" angle="-4,3571053" speed="336" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="36,782948">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,3125" positionY="0,85" angle="-4,3571053" speed="343" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="38,516254">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="203" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="38,81625">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="35" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="38,932915">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="280" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="39,36624">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,112500004" positionY="0,85" angle="-2,0037184" speed="154" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="39,582905">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,7125" positionY="0,85" angle="0,0039834976" speed="203" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="39,632904">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,91249996" positionY="0,85" angle="5,796852" speed="98" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="Comet" launchTime="39,766235">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size main="120" other="20" />
+    <start positionX="0,5125" positionY="0,85" angle="-2,5212226" speed="322" lifeSpan="1,5" />
+  </Firework>
+  <Firework type="ParticleRain" launchTime="40,21623">
+    <ColorStart r="255" g="69" b="0" />
+    <ColorEnd r="255" g="255" b="0" />
+    <Size>10</Size>
+    <start positionX="0,7740223" positionY="0,25494242" speed="90" lifeSpan="2,22" nbParticle="360" />
+  </Firework>
+</FireworkSequence>

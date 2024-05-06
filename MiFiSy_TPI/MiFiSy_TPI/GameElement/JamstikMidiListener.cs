@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MiFiSy_TPI.ParticleCreator;
 using NAudio.Midi;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Classe pour gérer les entrés MIDI
+ */
 namespace MiFiSy_TPI.GameElement
 {
     internal class JamstikMidiListener
@@ -17,6 +15,10 @@ namespace MiFiSy_TPI.GameElement
         private bool _isConnected;
         private SpriteFont _font;
 
+        /// <summary>
+        /// Constructeur de la classe, connection à la guitare
+        /// </summary>
+        /// <param name="font">font pour le message d'erreur si la guitare n'est pas trouvé</param>
         public JamstikMidiListener(SpriteFont font)
         {
             _font = font;
@@ -45,11 +47,13 @@ namespace MiFiSy_TPI.GameElement
         /// </summary>
         private void MidiIn_MessageReceived(object sender, MidiInMessageEventArgs e)
         {
+            // Si on est dans le jeu en mode libre
             if (Globals.ActualPage == Globals.AllPage.Game && Globals.GameManager.Mode)
             {
                 MidiEvent midiEvent = MidiEvent.FromRawMessage(e.RawMessage);
                 if (midiEvent is NoteEvent noteEvent)
                 {
+                    // Lorsqu'une note est jouée
                     if (noteEvent.CommandCode == MidiCommandCode.NoteOn)
                     {
                         // Corde 1 jouée
@@ -67,6 +71,9 @@ namespace MiFiSy_TPI.GameElement
             }
         }
 
+        /// <summary>
+        /// Affiche un message d'erreur si il n'y a pas de connexion
+        /// </summary>
         public void DrawErrorNotConnected()
         {
             if (!_isConnected)

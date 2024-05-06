@@ -1,11 +1,11 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Struct contenant les variables d'une particule (vient de : https://www.youtube.com/watch?v=-4_kj_gyWRY)
+ */
 namespace MiFiSy_TPI.ParticleCreator.Structure
 {
     internal struct ParticleData

@@ -1,20 +1,19 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using MiFiSy_TPI.GameElement.Firework;
-using MiFiSy_TPI.ParticleCreator;
 using MiFiSy_TPI.UI;
-using SharpDX.Direct3D9;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Classe de gestion du jeu libre et replay
+ */
 namespace MiFiSy_TPI.GameElement
 {
     internal class GameManager
@@ -70,9 +69,14 @@ namespace MiFiSy_TPI.GameElement
 
         public bool Mode { get => _mode; set => _mode = value; }
 
+        /// <summary>
+        /// Constructeur de la classe
+        /// </summary>
+        /// <param name="mode">Si mode = true, on est dans le mode libre, si mode = false, on est dans le mode replay</param>
+        /// <param name="musiqueName">nom de la musique, optionnel</param>
+        /// <param name="replayFileName">nom du replay, obligatoire dans le mode replay</param>
         public GameManager(bool mode, string musiqueName = "", string replayFileName = "")
         {
-            // Si mode = true, on est dans le mode libre, si mode = false, on est dans le mode replay
             Mode = mode;
             _lstMortar = new List<Mortar>();
             _timerLauch = 0;
@@ -83,14 +87,15 @@ namespace MiFiSy_TPI.GameElement
 
             if (Mode)
             {
+                _saveButton = new Button(new Vector2(0.89f, 0.01f), 0.1f, 0.05f, "Sauvegarder", Color.Gray, Color.White, "save");
+
+                // Charge et lance la musique si une musique a été choisi
                 if (musiqueName != "")
                 {
-                    // Charge et lance la musique
                     string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Config.PATH_MUSIC, musiqueName);
                     _music = Song.FromUri(Path.GetFileName(fullPath), new Uri(fullPath));
                     MediaPlayer.Play(_music);
                 }
-                _saveButton = new Button(new Vector2(0.89f, 0.01f), 0.1f, 0.05f, "Sauvegarder", Color.Gray, Color.White, "save");
 
                 // Charge l'image si un chemin est indiqué dans le fichier de configuration
                 if (Config.PATH_IMG != "")
@@ -154,10 +159,11 @@ namespace MiFiSy_TPI.GameElement
         }
 
         /// <summary>
-        /// Sauvegarde la séquence en XML
+        /// Sauvegarde toute la séquence en XML
         /// </summary>
         public void SaveSequence()
         {
+            string musicName = Globals.MusicSelectedName != "" ? Config.PATH_MUSIC + Globals.MusicSelectedName : string.Empty;
             // Information global de la séquence, nom, auteur, date...
             DateTime currentDate = DateTime.Now;
             XDocument document = new XDocument(
@@ -167,7 +173,7 @@ namespace MiFiSy_TPI.GameElement
                     new XAttribute(ATTRIBUTE_AUTHOR, Config.AUTHOR_FILE),
                     new XAttribute(ATTRIBUTE_TIME_END, _timerLauch.ToString().Replace(".", ",")),
                     new XElement(ELEMENT_AUDIO,
-                        new XAttribute(ATTRIBUTE_TRACK, Config.PATH_MUSIC + Globals.MusicSelectedName)
+                        new XAttribute(ATTRIBUTE_TRACK, musicName)
                     ),
                     new XElement(ELEMENT_BACKGROUND,
                         new XAttribute(ATTRIBUTE_IMG, Config.PATH_IMG)
@@ -233,11 +239,10 @@ namespace MiFiSy_TPI.GameElement
         }
 
         /// <summary>
-        /// Crée les éléments communs au feu d'artifice
+        /// Crée les éléments communs au feu d'artifice comme la couleur et le temps de lancement
         /// </summary>
-        /// <param name="firework"></param>
-        /// <param name="type"></param>
-        /// <returns></returns>
+        /// <param name="firework">feu d'artifice lancé, pour récupéré le launchTime</param>
+        /// <param name="type">type de feu d'artifice : Comète, pluie de particule</param>
         private static XElement CreateCommonFireworkElement(IFirework firework, string type)
         {
             return new XElement(ELEMENT_FIREWORK,
@@ -286,7 +291,7 @@ namespace MiFiSy_TPI.GameElement
             {
                 Globals.LstFirework.ForEach(x => x.Update());
             }
-            catch (InvalidOperationException) { /* Il arrive parfois qu'un feu d'artifice soit ajouté pendant la mise à jour */}
+            catch (InvalidOperationException) { /* Il arrive parfois qu'un feu d'artifice soit ajouté pendant la mise à jour */ }
 
             if (Mode)
             {
@@ -298,6 +303,7 @@ namespace MiFiSy_TPI.GameElement
                     showMessageSave = true;
                 }
 
+                // permet d'afficher le message de confirmation de sauvegarde pendant un certain temps
                 if (showMessageSave)
                 {
                     _timerSave += Globals.TotalSeconds;
@@ -321,21 +327,23 @@ namespace MiFiSy_TPI.GameElement
             }
             else
             {
-                // Rejoue la séquence
+                // Rejoue toute la séquence
                 foreach (XElement firework in _file.Descendants(ELEMENT_FIREWORK))
                 {
                     if (float.Parse(firework.Attribute(ATTRIBUTE_LAUNCH_TIME).Value) == _timerLauch)
                     {
+                        // Récupère les informations communs aux feux d'artifices
                         Color colorStart = Globals.GetColorFromElement(firework.Descendants(ELEMENT_COLOR_START).FirstOrDefault());
                         Color colorEnd = Globals.GetColorFromElement(firework.Descendants(ELEMENT_COLOR_END).FirstOrDefault());
                         float positionX = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_POSITION_X).Value);
                         float positionY = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_POSITION_Y).Value);
                         float speed = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_SPEED).Value);
                         float lifespan = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_LIFESPAN).Value);
-
+                        
                         string fireworkType = firework.Attribute(ATTRIBUTE_TYPE).Value;
                         if (fireworkType == ATTRIBUTE_TYPE_COMET)
                         {
+                            // Crée une comète
                             float sizeMain = float.Parse(firework.Descendants(ELEMENT_SIZE).FirstOrDefault().Attribute(ATTRIBUTE_MAIN_SIZE).Value);
                             float sizeOther = float.Parse(firework.Descendants(ELEMENT_SIZE).FirstOrDefault().Attribute(ATTRIBUTE_OTHER_SIZE).Value);
                             float angle = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_ANGLE).Value);
@@ -343,6 +351,7 @@ namespace MiFiSy_TPI.GameElement
                         }
                         else if (fireworkType == ATTRIBUTE_TYPE_PARTICLE_RAIN)
                         {
+                            // Créer une pluie de particule
                             float size = float.Parse(firework.Descendants(ELEMENT_SIZE).FirstOrDefault().Value);
                             float nbParticle = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_NB_PARTICLE).Value);
                             Globals.LstFirework.Add(new ParticleRain(new Vector2(positionX, positionY), speed, lifespan, colorStart, colorEnd, size, nbParticle));
@@ -352,6 +361,9 @@ namespace MiFiSy_TPI.GameElement
             }
         }
 
+        /// <summary>
+        /// Méthode d'affichage du jeu, libre et replay
+        /// </summary>
         public void Draw()
         {
             if (Mode)

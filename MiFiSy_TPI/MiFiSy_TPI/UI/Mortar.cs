@@ -1,11 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+/*
+ * Auteur : Yoann Meier
+ * Date : 06/05/2024
+ * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
+ * Description de la page : Class d'un mortier
+ */
 namespace MiFiSy_TPI.UI
 {
     internal class Mortar
@@ -59,6 +60,9 @@ namespace MiFiSy_TPI.UI
             _texture.SetData(colorData);
         }
 
+        /// <summary>
+        /// Affiche le mortier
+        /// </summary>
         public void Draw()
         {
             Globals.SpriteBatch.Draw(_texture, Rectangle, null, _color, Angle, Vector2.Zero, SpriteEffects.None, 0);
