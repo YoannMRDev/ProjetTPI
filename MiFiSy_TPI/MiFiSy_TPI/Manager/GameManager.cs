@@ -321,8 +321,8 @@ namespace MiFiSy_TPI.Manager
                     int nbMortar = Globals.RandomInt(0, Config.ALL_MORTAR.Count - 1);
                     Vector2 emitPos = _lstMortar[nbMortar].Position;
                     emitPos.X += _lstMortar[nbMortar].Width / 2;
-                    Globals.LstFirework.Add(new Comet(emitPos, _lstMortar[nbMortar].Angle, 400, 1.5f, _timerLauch));
-                    Globals.LstFirework.Add(new ParticleRain(80, 1.5f, _timerLauch));
+                    //Globals.LstFirework.Add(new Comet(emitPos, _lstMortar[nbMortar].Angle, 400, 1.5f, _timerLauch));
+                    Globals.LstFirework.Add(new ParticleRain(80, 3f, _timerLauch));
                 }
             }
             else

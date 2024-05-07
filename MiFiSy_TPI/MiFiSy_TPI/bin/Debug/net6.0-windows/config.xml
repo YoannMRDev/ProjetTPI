@@ -11,6 +11,6 @@
   <Mortar angle="10" height="0,15" width="0,025" positionX="0,9" positionY="0,85"/>
   <ColorStart r="255" g="69" b="0"/>
   <ColorEnd r="255" g="255" b="0"/>
-  <ParticleRain sizeParticle="10" nbParticle="360" lifeSpan="0,06" speedDecrease="2" defaultSpeed="90"/>
+  <ParticleRain sizeParticle="10" nbParticle="360" lifeSpan="0,06" timeSpawn="0,04" defaultSpeed="90"/>
   <Comet sizeMainParticle="120" sizeOtherParticle="20" defaultSpeed="7" defaultLifespan="1,5" />
 </Config>

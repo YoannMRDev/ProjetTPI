@@ -1,23 +1,30 @@
 ﻿using Microsoft.Xna.Framework;
 using MiFiSy_TPI.ParticleCreator;
 using MiFiSy_TPI.ParticleCreator.Structure;
+using System;
 using System.Collections.Generic;
 /*
  * Auteur : Yoann Meier
  * Date : 06/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
- * Description de la page : Classe de création du feu d'artifice de la pluie de particules
+ * Description de la page : Class d'une pluie de particule, version 2
  */
 namespace MiFiSy_TPI.Firework
 {
     public class ParticleRain : IFirework
     {
-        private List<ParticleEmitter> _lstParticlesEmitter;
+        private List<Particle> _lstMainParticles;
+        private List<Particle> _lstOtherParticles;
         private float _lifespan;
         private float _timerLife;
+        private float _timerSpawn;
         private float _launchTime;
         private Vector2 _startPosition;
         private float _startSpeed;
+        private float _nbParticle;
+        private Color _colorStart;
+        private Color _colorEnd;
+        private float _size;
 
         public float Lifespan { get => _lifespan; set => _lifespan = value; }
         public float LaunchTime { get => _launchTime; set => _launchTime = value; }
@@ -36,43 +43,36 @@ namespace MiFiSy_TPI.Firework
             LaunchTime = launchTime;
             Lifespan = lifespan;
             StartSpeed = speed;
+            _nbParticle = Config.PARTICLE_RAIN_NB;
+            _colorStart = Config.COLOR_START;
+            _colorEnd = Config.COLOR_END;
+            _size = Config.PARTICLE_RAIN_SIZE;
 
             _timerLife = 0;
+            _timerSpawn = 0;
             // Position aléatoire du feu d'artifice sur la partie haute de l'écran
             StartPosition = new Vector2(Globals.RandomFloat(distanceFromBorder, Globals.ScreenWidth - distanceFromBorder) / Globals.ScreenWidth, Globals.RandomFloat(distanceFromBorder, Globals.ScreenHeight / 2) / Globals.ScreenHeight);
-            _lstParticlesEmitter = new List<ParticleEmitter>();
+            _lstMainParticles = new List<Particle>();
+            _lstOtherParticles = new List<Particle>();
 
-            for (int i = 1; i <= Config.PARTICLE_RAIN_NB; i++)
+            for (int i = 0; i < _nbParticle; i++)
             {
-                float angle = 360 / Config.PARTICLE_RAIN_NB * i;
+                float angle = 360 / _nbParticle * i;
                 // Vitesse aléatoire entre 0 et le maximum
                 float newSpeed = Globals.RandomFloat(0, speed);
-                ParticleEmitterData particleEmitterData = new ParticleEmitterData()
+                ParticleData particleData = new ParticleData()
                 {
-                    interval = 0.01f,
-                    emitCount = 1,
-                    lifespanMin = Lifespan,
-                    lifespanMax = Lifespan,
                     angle = angle,
-                    decreasedLifespan = true,
-                    nbDecreasedLifespan = 0.2f,
-                    speedMin = newSpeed,
-                    speedMax = newSpeed,
-                    hasGravity = true,
-                    particleData = new ParticleData()
-                    {
-                        angle = angle,
-                        speed = newSpeed,
-                        colorStart = Config.COLOR_START,
-                        colorEnd = Config.COLOR_END,
-                        sizeStart = Config.PARTICLE_RAIN_SIZE,
-                        sizeEnd = Config.PARTICLE_RAIN_SIZE,
-                    }
+                    speed = newSpeed,
+                    colorStart = _colorStart,
+                    colorEnd = _colorEnd,
+                    sizeStart = _size,
+                    sizeEnd = _size,
+                    lifespan = Lifespan,
                 };
-
-                ParticleEmitter p = new ParticleEmitter(StartPosition, particleEmitterData);
-                ParticleManager.AddParticleEmitter(p);
-                _lstParticlesEmitter.Add(p);
+                Particle p = new Particle(StartPosition, particleData);
+                _lstMainParticles.Add(p);
+                ParticleManager.AddParticle(p);
             }
         }
 
@@ -91,71 +91,86 @@ namespace MiFiSy_TPI.Firework
             LaunchTime = 0f;
             Lifespan = lifespan;
             StartSpeed = speed;
+            _nbParticle = nbParticle;
+            _colorStart = colorStart;
+            _colorEnd = colorEnd;
+            _size = size;
 
             _timerLife = 0;
+            _timerSpawn = 0;
             StartPosition = position;
-            _lstParticlesEmitter = new List<ParticleEmitter>();
 
-            for (int i = 1; i <= nbParticle; i++)
+            _lstMainParticles = new List<Particle>();
+            _lstOtherParticles = new List<Particle>();
+
+            for (int i = 0; i < _nbParticle; i++)
             {
-                float angle = 360 / nbParticle * i;
+                float angle = 360 / _nbParticle * i;
                 // Vitesse aléatoire entre 0 et le maximum
                 float newSpeed = Globals.RandomFloat(0, speed);
-                ParticleEmitterData particleEmitterData = new ParticleEmitterData()
+                ParticleData particleData = new ParticleData()
                 {
-                    interval = 0.01f,
-                    emitCount = 1,
-                    lifespanMin = Lifespan,
-                    lifespanMax = Lifespan,
                     angle = angle,
-                    decreasedLifespan = true,
-                    nbDecreasedLifespan = 0.2f,
-                    speedMin = newSpeed,
-                    speedMax = newSpeed,
-                    hasGravity = true,
-                    particleData = new ParticleData()
-                    {
-                        angle = angle,
-                        speed = newSpeed,
-                        colorStart = colorStart,
-                        colorEnd = colorEnd,
-                        sizeStart = size,
-                        sizeEnd = size,
-                    }
+                    speed = newSpeed,
+                    colorStart = _colorStart,
+                    colorEnd = _colorEnd,
+                    sizeStart = _size,
+                    sizeEnd = _size,
+                    lifespan = lifespan,
                 };
-
-                ParticleEmitter p = new ParticleEmitter(StartPosition, particleEmitterData);
-                ParticleManager.AddParticleEmitter(p);
-                _lstParticlesEmitter.Add(p);
+                Particle p = new Particle(StartPosition, particleData);
+                _lstMainParticles.Add(p);
+                ParticleManager.AddParticle(p);
             }
         }
 
-        /// <summary>
-        /// Supprime en fin de vie et diminue la vitesse des particules dans le temps
-        /// </summary>
         public void Update()
         {
-            // Diminue la vitesse des particules
-            foreach (ParticleEmitter item in _lstParticlesEmitter)
-            {
-                ParticleEmitterData newData = item.Data;
-                if (newData.speedMax > 0 && newData.speedMin > 0)
-                {
-                    newData.speedMax -= Config.PARTICLE_RAIN_SPEED_DECREASE;
-                    newData.speedMin -= Config.PARTICLE_RAIN_SPEED_DECREASE;
-                    item.Data = newData;
-                }
-            }
-
-            // Supprime en fin de vie
             _timerLife += Globals.TotalSeconds;
+            _timerSpawn += Globals.TotalSeconds;
+            // Supprime en fin de vie
             if (_timerLife >= Lifespan)
             {
-                foreach (ParticleEmitter item in _lstParticlesEmitter)
+                _lstMainParticles.Clear();
+                _lstOtherParticles.Clear();
+            }
+
+            if (_lstMainParticles.Count != 0)
+            {
+                if (_timerSpawn >= Config.PARTICLE_RAIN_TIME_SPAWN)
                 {
-                    ParticleManager.RemoveParticleEmitter(item);
+                    // Ajoute une particule immobile sur chaque particule en mouvement
+                    for (int i = 0; i < _nbParticle; i++)
+                    {
+                        ParticleData particleData = new ParticleData()
+                        {
+                            angle = MathHelper.ToDegrees(_lstMainParticles[i].Data.angle),
+                            speed = 0,
+                            colorStart = _colorStart,
+                            colorEnd = _colorEnd,
+                            sizeStart = _size,
+                            sizeEnd = _size,
+                            lifespan = Lifespan - _timerLife,
+                        };
+                        Particle p = new Particle(_lstMainParticles[i].Position, particleData);
+                        _lstOtherParticles.Add(p);
+                        ParticleManager.AddParticle(p);
+                    }
+                    _timerSpawn = 0;
                 }
-                _lstParticlesEmitter.Clear();
+                
+                // Si un tiers du temps total est passé, les particules en movement tombent
+                if (_timerLife >= Lifespan / 3)
+                {
+                    foreach (Particle item in _lstMainParticles)
+                    {
+                        ParticleData data = item.Data;
+                        int angleAdd = MathHelper.ToDegrees(data.angle) < 180 ? 1 : -1;
+                        data.angle = MathHelper.ToDegrees(data.angle) + angleAdd;
+                        item.Data = data;
+                        item.SetAngleAndDirection(item.Data);
+                    }
+                }
             }
         }
     }

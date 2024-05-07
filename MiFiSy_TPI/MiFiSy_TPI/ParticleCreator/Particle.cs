@@ -24,7 +24,6 @@ namespace MiFiSy_TPI.ParticleCreator
         private Vector2 _direction;
 
         public Vector2 Position { get => _position; set => _position = value; }
-
         internal ParticleData Data { get => _data; set => _data = value; }
 
         public Particle(Vector2 pos, ParticleData data)
@@ -37,6 +36,15 @@ namespace MiFiSy_TPI.ParticleCreator
             _opacity = data.opacityStart;
             _origin = new Vector2(_data.texture.Width / 2, _data.texture.Height / 2);
 
+            SetAngleAndDirection(data);
+        }
+
+        /// <summary>
+        /// Calcul de la direction de la particule
+        /// </summary>
+        /// <param name="data">ParticleData pour récupérer l'angle en degrés</param>
+        public void SetAngleAndDirection(ParticleData data)
+        {
             if (data.speed != 0)
             {
                 // Converti l'angle en radians

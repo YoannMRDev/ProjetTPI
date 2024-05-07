@@ -32,7 +32,7 @@ namespace MiFiSy_TPI
         public static int PARTICLE_RAIN_SIZE { get => Convert.ToInt32(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("sizeParticle").Value); }
         public static int PARTICLE_RAIN_NB { get => Convert.ToInt32(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("nbParticle").Value); }
         public static float PARTICLE_RAIN_LIFESPAN { get => float.Parse(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("lifeSpan").Value); }
-        public static int PARTICLE_RAIN_SPEED_DECREASE { get => Convert.ToInt32(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("speedDecrease").Value); }
+        public static float PARTICLE_RAIN_TIME_SPAWN { get => float.Parse(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("timeSpawn").Value); }
         public static float PARTICLE_RAIN_SPEED { get => float.Parse(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("defaultSpeed").Value); }
         public static int COMET_MAIN_SIZE { get => Convert.ToInt32(_configElement.Descendants("Comet").FirstOrDefault().Attribute("sizeMainParticle").Value); }
         public static int COMET_OTHER_SIZE { get => Convert.ToInt32(_configElement.Descendants("Comet").FirstOrDefault().Attribute("sizeOtherParticle").Value); }
