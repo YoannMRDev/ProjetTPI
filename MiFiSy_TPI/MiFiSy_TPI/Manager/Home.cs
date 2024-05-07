@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using MiFiSy_TPI.UI;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace MiFiSy_TPI.Manager
         private Dictionary<string, Button> _lstReplay;
         private List<Button> _lstBtnMusic;
 
+        private const int NB_FILE_MAX = 10;
+
         /// <summary>
         /// Constructeur de la classe, récupère les musiques, les séquences sauvegardés des dossiers défini dans le fichier de configuration
         /// </summary>
@@ -30,20 +33,31 @@ namespace MiFiSy_TPI.Manager
             if (Directory.Exists(Config.PATH_SAVE_SEQUENCE))
             {
                 string[] allReplay = Directory.GetFiles(Config.PATH_SAVE_SEQUENCE);
-                for (int i = 1; i <= allReplay.Length; i++)
+                if (allReplay.Length > NB_FILE_MAX)
                 {
-                    string nameSequence = XDocument.Load(allReplay[i - 1]).Descendants("FireworkSequence").FirstOrDefault().Attribute("name").Value;
-                    _lstReplay.Add(allReplay[i - 1], new Button(new Vector2(0.8f, Globals.ScreenHeight / (float)(allReplay.Length + 1) * i / Globals.ScreenHeight), 0.1f, 0.05f, nameSequence, Color.Gray, Color.White, "playReplay"));
+                    Array.Resize(ref allReplay, NB_FILE_MAX);
                 }
+
+                for (int i = 0; i < allReplay.Length; i++)
+                {
+                    string nameSequence = XDocument.Load(allReplay[i]).Descendants("FireworkSequence").FirstOrDefault().Attribute("name").Value;
+                    _lstReplay.Add(allReplay[i], new Button(new Vector2(0.8f, Globals.ScreenHeight / (float)(allReplay.Length + 1) * (i + 1) / Globals.ScreenHeight), 0.1f, 0.05f, nameSequence, Color.Gray, Color.White, "playReplay"));
+                }
+
             }
 
             if (Directory.Exists(Config.PATH_MUSIC))
             {
                 string[] allMusic = Directory.GetFiles(Config.PATH_MUSIC);
-                for (int i = 1; i <= allMusic.Length; i++)
+                if (allMusic.Length > NB_FILE_MAX)
                 {
-                    string fileName = allMusic[i - 1].Split('/')[1];
-                    _lstBtnMusic.Add(new Button(new Vector2(0.1f, Globals.ScreenHeight / (float)(allMusic.Length + 1) * i / Globals.ScreenHeight), 0.1f, 0.05f, fileName, Color.Gray, Color.White, "addMusic"));
+                    Array.Resize(ref allMusic, NB_FILE_MAX);
+                }
+
+                for (int i = 0; i < allMusic.Length; i++)
+                {
+                    string fileName = allMusic[i].Split('/')[1];
+                    _lstBtnMusic.Add(new Button(new Vector2(0.1f, Globals.ScreenHeight / (float)(allMusic.Length + 1) * (i + 1) / Globals.ScreenHeight), 0.1f, 0.05f, fileName, Color.Gray, Color.White, "addMusic"));
                 }
             }
         }
