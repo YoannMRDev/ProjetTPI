@@ -40,10 +40,13 @@ namespace MiFiSy_TPI.Manager
 
                 for (int i = 0; i < allReplay.Length; i++)
                 {
-                    string nameSequence = XDocument.Load(allReplay[i]).Descendants("FireworkSequence").FirstOrDefault().Attribute("name").Value;
-                    _lstReplay.Add(allReplay[i], new Button(new Vector2(0.8f, Globals.ScreenHeight / (float)(allReplay.Length + 1) * (i + 1) / Globals.ScreenHeight), 0.1f, 0.05f, nameSequence, Color.Gray, Color.White, "playReplay"));
+                    string fileType = allReplay[i].Split(".")[1];
+                    if (fileType == "xml")
+                    {
+                        string nameSequence = XDocument.Load(allReplay[i]).Descendants("FireworkSequence").FirstOrDefault().Attribute("name").Value;
+                        _lstReplay.Add(allReplay[i], new Button(new Vector2(0.8f, Globals.ScreenHeight / (float)(allReplay.Length + 1) * (i + 1) / Globals.ScreenHeight), 0.1f, 0.05f, nameSequence, Color.Gray, Color.White, "playReplay"));
+                    }
                 }
-
             }
 
             if (Directory.Exists(Config.PATH_MUSIC))
@@ -56,8 +59,12 @@ namespace MiFiSy_TPI.Manager
 
                 for (int i = 0; i < allMusic.Length; i++)
                 {
-                    string fileName = allMusic[i].Split('/')[1];
-                    _lstBtnMusic.Add(new Button(new Vector2(0.1f, Globals.ScreenHeight / (float)(allMusic.Length + 1) * (i + 1) / Globals.ScreenHeight), 0.1f, 0.05f, fileName, Color.Gray, Color.White, "addMusic"));
+                    string fileType = allMusic[i].Split(".")[1];
+                    if (fileType == "mp3" || fileType == "wav")
+                    {
+                        string fileName = allMusic[i].Split('/')[1];
+                        _lstBtnMusic.Add(new Button(new Vector2(0.1f, Globals.ScreenHeight / (float)(allMusic.Length + 1) * (i + 1) / Globals.ScreenHeight), 0.1f, 0.05f, fileName, Color.Gray, Color.White, "addMusic"));
+                    }
                 }
             }
         }
