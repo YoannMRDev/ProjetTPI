@@ -78,7 +78,7 @@ namespace MiFiSy_TPI.Manager
         {
             if (!_isConnected)
             {
-                Globals.SpriteBatch.DrawString(_font, "Aucune entree MIDI trouve", new Vector2(Globals.ScreenWidth / 2, Globals.ScreenHeight / 2), Color.Red);
+                Globals.SpriteBatch.DrawString(_font, "Aucune entree MIDI trouvee", new Vector2(Globals.ScreenWidth / 2, Globals.ScreenHeight / 2), Color.Red);
             }
         }
     }

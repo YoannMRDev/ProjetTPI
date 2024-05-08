@@ -3,7 +3,7 @@
   <NameSequence>Sequence de feu d artifice</NameSequence>
   <PathMusic>music/</PathMusic>
   <PathImg></PathImg>
-  <PathSaveDequence>save/</PathSaveDequence>
+  <PathSaveSequence>save/</PathSaveDequence>
   <Mortar angle="10" height="0,15" width="0,025" positionX="0,1" positionY="0,85"/>
   <Mortar angle="10" height="0,15" width="0,025" positionX="0,3" positionY="0,85"/>
   <Mortar angle="10" height="0,15" width="0,025" positionX="0,5" positionY="0,85"/>

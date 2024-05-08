@@ -14,7 +14,6 @@ namespace MiFiSy_TPI.Firework
     public class ParticleRain : IFirework
     {
         private List<Particle> _lstMainParticles;
-        private List<Particle> _lstOtherParticles;
         private float _lifespan;
         private float _timerLife;
         private float _timerSpawn;
@@ -38,6 +37,7 @@ namespace MiFiSy_TPI.Firework
         /// <param name="lifespan">durée de vie du feu d'artifice</param>
         /// <param name="launchTime">Le temps à laquelle l'effet a été crée, seulement utilisé pour la sauvegarde</param>
         /// <param name="distanceFromBorder">distance pour ne pas créer la particule en dehors ou sur le bord de l'écran</param>
+        //[:constructeur:]
         public ParticleRain(float speed, float lifespan, float launchTime, float distanceFromBorder = 100)
         {
             LaunchTime = launchTime;
@@ -53,7 +53,6 @@ namespace MiFiSy_TPI.Firework
             // Position aléatoire du feu d'artifice sur la partie haute de l'écran
             StartPosition = new Vector2(Globals.RandomFloat(distanceFromBorder, Globals.ScreenWidth - distanceFromBorder) / Globals.ScreenWidth, Globals.RandomFloat(distanceFromBorder, Globals.ScreenHeight / 2) / Globals.ScreenHeight);
             _lstMainParticles = new List<Particle>();
-            _lstOtherParticles = new List<Particle>();
 
             for (int i = 0; i < _nbParticle; i++)
             {
@@ -75,7 +74,7 @@ namespace MiFiSy_TPI.Firework
                 ParticleManager.AddParticle(p);
             }
         }
-
+        //[:finconstructeur:]
         /// <summary>
         /// Constructeur de la classe utilisée dans le jeu replay : créer la pluie de particules en fonction de paramètre du fichier qui est rejoué
         /// </summary>
@@ -101,7 +100,6 @@ namespace MiFiSy_TPI.Firework
             StartPosition = position;
 
             _lstMainParticles = new List<Particle>();
-            _lstOtherParticles = new List<Particle>();
 
             for (int i = 0; i < _nbParticle; i++)
             {
@@ -124,6 +122,7 @@ namespace MiFiSy_TPI.Firework
             }
         }
 
+        //[:updatedebut:]
         public void Update()
         {
             _timerLife += Globals.TotalSeconds;
@@ -132,7 +131,6 @@ namespace MiFiSy_TPI.Firework
             if (_timerLife >= Lifespan)
             {
                 _lstMainParticles.Clear();
-                _lstOtherParticles.Clear();
             }
 
             if (_lstMainParticles.Count != 0)
@@ -153,7 +151,6 @@ namespace MiFiSy_TPI.Firework
                             lifespan = Lifespan - _timerLife,
                         };
                         Particle p = new Particle(_lstMainParticles[i].Position, particleData);
-                        _lstOtherParticles.Add(p);
                         ParticleManager.AddParticle(p);
                     }
                     _timerSpawn = 0;
@@ -168,10 +165,11 @@ namespace MiFiSy_TPI.Firework
                         int angleAdd = MathHelper.ToDegrees(data.angle) < 180 ? 1 : -1;
                         data.angle = MathHelper.ToDegrees(data.angle) + angleAdd;
                         item.Data = data;
-                        item.SetAngleAndDirection(item.Data);
+                        item.SetAngleAndDirection();
                     }
                 }
             }
         }
+        //[:updatefin:]
     }
 }

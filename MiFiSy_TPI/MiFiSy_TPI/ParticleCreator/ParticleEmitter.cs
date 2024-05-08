@@ -15,8 +15,6 @@ namespace MiFiSy_TPI.ParticleCreator
         private Vector2 _emitPosition;
         public bool destroy;
 
-        private const float ANGLE_GRAVITY = 180;
-
         internal ParticleEmitterData Data { get => data; set => data = value; }
 
         public ParticleEmitter(Vector2 emitPosition, ParticleEmitterData data)
@@ -68,19 +66,6 @@ namespace MiFiSy_TPI.ParticleCreator
                 {
                     data.lifespanMin -= data.nbDecreasedLifespan;
                     data.lifespanMax -= data.nbDecreasedLifespan;
-                }
-            }
-
-            // Effet de gravité
-            if (data.hasGravity)
-            {
-                if (data.angle > ANGLE_GRAVITY)
-                {
-                    data.angle += data.nbGravity;
-                }
-                else if (data.angle < ANGLE_GRAVITY)
-                {
-                    data.angle -= data.nbGravity;
                 }
             }
         }

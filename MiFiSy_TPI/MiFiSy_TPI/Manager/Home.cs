@@ -78,11 +78,13 @@ namespace MiFiSy_TPI.Manager
                 if (btnMusic.IsPressed)
                 {
                     bool changeOk = true;
+                    // Si aucune musique n'est séléctionné
                     if (Globals.MusicSelectedName != "")
                     {
                         Button btnSelected = _lstBtnMusic.Find(x => x.Text == Globals.MusicSelectedName);
                         btnSelected.TextColor = Color.White;
                         Globals.MusicSelectedName = "";
+                        // Si on a r'appuyé sur le même bouton, on ne le met pas en rouge
                         if (btnSelected.Text == btnMusic.Text)
                         {
                             changeOk = false;

@@ -68,6 +68,7 @@ namespace MiFiSy_TPI.UI
         /// <summary>
         /// Calcule la position et la taille du text par rapport à la largeur du rectangle qu'il contient
         /// </summary>
+        //[:fonctionSetText:]
         public void SetTextPositionAndScale()
         {
             if (Globals.FontButton.MeasureString(_text).X != 0)
@@ -85,7 +86,7 @@ namespace MiFiSy_TPI.UI
             _textPosition.X = Rectangle.X + (Rectangle.Width - Globals.FontButton.MeasureString(_text).X * _scale) / 2;
             _textPosition.Y = Rectangle.Y + (Rectangle.Height - Globals.FontButton.MeasureString(_text).Y * _scale) / 2;
         }
-
+        //[:finfonctionSetText:]
         public void Update()
         {
             if (InputManager.HasClicked && Rectangle.Contains(InputManager.MousePosition))

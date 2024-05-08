@@ -36,16 +36,15 @@ namespace MiFiSy_TPI.ParticleCreator
             _opacity = data.opacityStart;
             _origin = new Vector2(_data.texture.Width / 2, _data.texture.Height / 2);
 
-            SetAngleAndDirection(data);
+            SetAngleAndDirection();
         }
 
         /// <summary>
-        /// Calcul de la direction de la particule
+        /// Calcul la direction de la particule avec l'angle
         /// </summary>
-        /// <param name="data">ParticleData pour récupérer l'angle en degrés</param>
-        public void SetAngleAndDirection(ParticleData data)
+        public void SetAngleAndDirection()
         {
-            if (data.speed != 0)
+            if (_data.speed != 0)
             {
                 // Converti l'angle en radians
                 _data.angle = MathHelper.ToRadians(_data.angle);
