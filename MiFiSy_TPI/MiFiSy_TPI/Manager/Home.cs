@@ -116,7 +116,10 @@ namespace MiFiSy_TPI.Manager
         public void Draw()
         {
             _btnPlay.Draw();
-            Globals.SpriteBatch.DrawString(Globals.FontButton, "Choisir une musique : (optionnel)", new Vector2(_lstBtnMusic[0].Rectangle.X, _lstBtnMusic[0].Rectangle.Y - 50), Color.White);
+            if (_lstBtnMusic.Count != 0)
+            {
+                Globals.SpriteBatch.DrawString(Globals.FontButton, "Choisir une musique : (optionnel)", new Vector2(_lstBtnMusic[0].Rectangle.X, _lstBtnMusic[0].Rectangle.Y - 50), Color.White);
+            }
             _lstBtnMusic.ForEach(x => x.Draw());
             if (_lstReplay.Count != 0)
             {
