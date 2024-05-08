@@ -27,8 +27,10 @@ namespace MiFiSy_TPI
         public static string PATH_IMG { get => _configElement.Descendants("PathImg").FirstOrDefault().Value; }
         public static string PATH_SAVE_SEQUENCE { get => _configElement.Descendants("PathSaveSequence").FirstOrDefault().Value; }
         public static List<XElement> ALL_MORTAR { get => _configElement.Descendants("Mortar").ToList(); }
-        public static Color COLOR_START { get => Globals.GetColorFromElement(_configElement.Descendants("ColorStart").FirstOrDefault()); }
-        public static Color COLOR_END { get => Globals.GetColorFromElement(_configElement.Descendants("ColorEnd").FirstOrDefault()); }
+        public static Color COLOR_START_COMET { get => Globals.GetColorFromElement(_configElement.Descendants("ColorStartComet").FirstOrDefault()); }
+        public static Color COLOR_END_COMET { get => Globals.GetColorFromElement(_configElement.Descendants("ColorEndComet").FirstOrDefault()); }
+        public static Color COLOR_PARTICLE_RAIN_START { get => Globals.GetColorFromElement(_configElement.Descendants("ColorStartParticleRain").FirstOrDefault()); }
+        public static Color COLOR_PARTICLE_RAIN_END { get => Globals.GetColorFromElement(_configElement.Descendants("ColorEndParticleRain").FirstOrDefault()); }
         public static int PARTICLE_RAIN_SIZE { get => Convert.ToInt32(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("sizeParticle").Value); }
         public static int PARTICLE_RAIN_NB { get => Convert.ToInt32(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("nbParticle").Value); }
         public static float PARTICLE_RAIN_LIFESPAN { get => float.Parse(_configElement.Descendants("ParticleRain").FirstOrDefault().Attribute("lifeSpan").Value); }

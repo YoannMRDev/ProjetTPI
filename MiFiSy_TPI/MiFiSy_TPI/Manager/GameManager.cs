@@ -262,20 +262,41 @@ namespace MiFiSy_TPI.Manager
         /// <param name="type">type de feu d'artifice : Comète, pluie de particule</param>
         private static XElement CreateCommonFireworkElement(IFirework firework, string type)
         {
-            return new XElement(ELEMENT_FIREWORK,
+            XElement baseParticle = new XElement(ELEMENT_FIREWORK,
                 new XAttribute(ATTRIBUTE_TYPE, type),
-                new XAttribute(ATTRIBUTE_LAUNCH_TIME, firework.LaunchTime.ToString().Replace(".", ",")),
-                new XElement(ELEMENT_COLOR_START,
-                    new XAttribute(ATTRIBUTE_R_COLOR, Config.COLOR_START.R),
-                    new XAttribute(ATTRIBUTE_G_COLOR, Config.COLOR_START.G),
-                    new XAttribute(ATTRIBUTE_B_COLOR, Config.COLOR_START.B)
-                ),
-                new XElement(ELEMENT_COLOR_END,
-                    new XAttribute(ATTRIBUTE_R_COLOR, Config.COLOR_END.R),
-                    new XAttribute(ATTRIBUTE_G_COLOR, Config.COLOR_END.G),
-                    new XAttribute(ATTRIBUTE_B_COLOR, Config.COLOR_END.B)
-                )
-            );
+                new XAttribute(ATTRIBUTE_LAUNCH_TIME, firework.LaunchTime.ToString().Replace(".", ","))
+           );
+            if (type == ATTRIBUTE_TYPE_COMET)
+            {
+                baseParticle.Add(
+                    new XElement(ELEMENT_COLOR_START,
+                        new XAttribute(ATTRIBUTE_R_COLOR, Config.COLOR_START_COMET.R),
+                        new XAttribute(ATTRIBUTE_G_COLOR, Config.COLOR_START_COMET.G),
+                        new XAttribute(ATTRIBUTE_B_COLOR, Config.COLOR_START_COMET.B)
+                    ),
+                     new XElement(ELEMENT_COLOR_END,
+                         new XAttribute(ATTRIBUTE_R_COLOR, Config.COLOR_END_COMET.R),
+                         new XAttribute(ATTRIBUTE_G_COLOR, Config.COLOR_END_COMET.G),
+                         new XAttribute(ATTRIBUTE_B_COLOR, Config.COLOR_END_COMET.B)
+                     )
+                );
+            }
+            else if (type == ATTRIBUTE_TYPE_PARTICLE_RAIN)
+            {
+                baseParticle.Add(
+                    new XElement(ELEMENT_COLOR_START,
+                        new XAttribute(ATTRIBUTE_R_COLOR, Config.COLOR_PARTICLE_RAIN_START.R),
+                        new XAttribute(ATTRIBUTE_G_COLOR, Config.COLOR_PARTICLE_RAIN_START.G),
+                        new XAttribute(ATTRIBUTE_B_COLOR, Config.COLOR_PARTICLE_RAIN_START.B)
+                    ),
+                     new XElement(ELEMENT_COLOR_END,
+                         new XAttribute(ATTRIBUTE_R_COLOR, Config.COLOR_PARTICLE_RAIN_END.R),
+                         new XAttribute(ATTRIBUTE_G_COLOR, Config.COLOR_PARTICLE_RAIN_END.G),
+                         new XAttribute(ATTRIBUTE_B_COLOR, Config.COLOR_PARTICLE_RAIN_END.B)
+                     )
+                );
+            }
+            return baseParticle;
         }
 
         /// <summary>

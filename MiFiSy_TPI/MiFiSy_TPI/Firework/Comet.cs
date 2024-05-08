@@ -51,8 +51,8 @@ namespace MiFiSy_TPI.Firework
                 angle = StartAngle,
                 speed = StartSpeed,
                 lifespan = Lifespan,
-                colorStart = Config.COLOR_START,
-                colorEnd = Config.COLOR_END,
+                colorStart = Config.COLOR_START_COMET,
+                colorEnd = Config.COLOR_END_COMET,
                 sizeStart = Config.COMET_MAIN_SIZE,
                 sizeEnd = Config.COMET_MAIN_SIZE,
             };
@@ -75,8 +75,8 @@ namespace MiFiSy_TPI.Firework
                 speedMax = StartSpeed,
                 particleData = new ParticleData()
                 {
-                    colorStart = Config.COLOR_START,
-                    colorEnd = Config.COLOR_END,
+                    colorStart = Config.COLOR_START_COMET,
+                    colorEnd = Config.COLOR_END_COMET,
                     sizeStart = Config.COMET_OTHER_SIZE,
                     sizeEnd = Config.COMET_OTHER_SIZE,
                 }

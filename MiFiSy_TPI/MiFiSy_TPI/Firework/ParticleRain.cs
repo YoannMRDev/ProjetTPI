@@ -44,8 +44,8 @@ namespace MiFiSy_TPI.Firework
             Lifespan = lifespan;
             StartSpeed = speed;
             _nbParticle = Config.PARTICLE_RAIN_NB;
-            _colorStart = Config.COLOR_START;
-            _colorEnd = Config.COLOR_END;
+            _colorStart = Config.COLOR_PARTICLE_RAIN_START;
+            _colorEnd = Config.COLOR_PARTICLE_RAIN_END;
             _size = Config.PARTICLE_RAIN_SIZE;
 
             _timerLife = 0;
