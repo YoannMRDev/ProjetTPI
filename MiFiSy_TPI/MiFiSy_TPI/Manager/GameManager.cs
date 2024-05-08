@@ -92,15 +92,23 @@ namespace MiFiSy_TPI.Manager
                 // Charge et lance la musique si une musique a été choisi
                 if (musiqueName != "")
                 {
-                    string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Config.PATH_MUSIC, musiqueName);
-                    _music = Song.FromUri(Path.GetFileName(fullPath), new Uri(fullPath));
-                    MediaPlayer.Play(_music);
+                    try
+                    {
+                        string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, Config.PATH_MUSIC, musiqueName);
+                        _music = Song.FromUri(Path.GetFileName(fullPath), new Uri(fullPath));
+                        MediaPlayer.Play(_music);
+                    }
+                    catch { /* le fichier n'existe plus ou ce n'est pas une musique */ }
                 }
 
                 // Charge l'image si un chemin est indiqué dans le fichier de configuration
                 if (Config.PATH_IMG != "")
                 {
-                    _background = Texture2D.FromFile(Globals.GraphicsDevice, Config.PATH_IMG);
+                    try
+                    {
+                        _background = Texture2D.FromFile(Globals.GraphicsDevice, Config.PATH_IMG);
+                    }
+                    catch { /* Le fichier n'existe pas ou n'est pas un format image */ }
                 }
 
                 // Ajoute tous les mortiers spécifiés dans le fichier de configuration
@@ -135,15 +143,24 @@ namespace MiFiSy_TPI.Manager
                 // Charge l'image si un chemin est indiqué dans le fichier de la séquence
                 if (_file.Descendants(ELEMENT_BACKGROUND).Attributes(ATTRIBUTE_IMG).FirstOrDefault().Value != "")
                 {
-                    _background = Texture2D.FromFile(Globals.GraphicsDevice, _file.Descendants(ELEMENT_BACKGROUND).Attributes(ATTRIBUTE_IMG).FirstOrDefault().Value);
+                    try
+                    {
+                        _background = Texture2D.FromFile(Globals.GraphicsDevice, _file.Descendants(ELEMENT_BACKGROUND).Attributes(ATTRIBUTE_IMG).FirstOrDefault().Value);
+                    }
+                    catch { /* Le fichier n'existe pas ou n'est pas un format image */ }
                 }
 
                 // Charge et lance la musique si elle est indiqué dans le fichier de la séquence
                 if (_file.Descendants(ELEMENT_AUDIO).Attributes(ATTRIBUTE_TRACK).FirstOrDefault().Value != "")
                 {
-                    string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _file.Descendants(ELEMENT_AUDIO).Attributes(ATTRIBUTE_TRACK).FirstOrDefault().Value);
-                    _music = Song.FromUri(Path.GetFileName(fullPath), new Uri(fullPath));
-                    MediaPlayer.Play(_music);
+                    try
+                    {
+                        string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _file.Descendants(ELEMENT_AUDIO).Attributes(ATTRIBUTE_TRACK).FirstOrDefault().Value);
+                        _music = Song.FromUri(Path.GetFileName(fullPath), new Uri(fullPath));
+                        MediaPlayer.Play(_music);
+                    }
+                    catch { /* le fichier n'existe plus ou ce n'est pas une musique */ }
+
                 }
             }
         }
@@ -321,7 +338,7 @@ namespace MiFiSy_TPI.Manager
                     int nbMortar = Globals.RandomInt(0, Config.ALL_MORTAR.Count - 1);
                     Vector2 emitPos = _lstMortar[nbMortar].Position;
                     emitPos.X += _lstMortar[nbMortar].Width / 2;
-                    //Globals.LstFirework.Add(new Comet(emitPos, _lstMortar[nbMortar].Angle, 400, 1.5f, _timerLauch));
+                    Globals.LstFirework.Add(new Comet(emitPos, _lstMortar[nbMortar].Angle, 400, 1.5f, _timerLauch));
                     Globals.LstFirework.Add(new ParticleRain(80, 3f, _timerLauch));
                 }
             }
@@ -369,7 +386,7 @@ namespace MiFiSy_TPI.Manager
             if (Mode)
             {
                 // Affiche l'image de fond si elle a été spécifiée dans le fichier de configuration
-                if (Config.PATH_IMG != "")
+                if (_background != null)
                 {
                     Globals.SpriteBatch.Draw(_background, new Rectangle(0, 0, Globals.ScreenWidth, Globals.ScreenHeight), Color.White);
                 }
@@ -384,7 +401,7 @@ namespace MiFiSy_TPI.Manager
             else
             {
                 // Affiche l'image de fond si elle a été spécifiée dans le fichier de la séquence
-                if (_file.Descendants(ELEMENT_BACKGROUND).Attributes(ATTRIBUTE_IMG).FirstOrDefault().Value != "")
+                if (_background != null)
                 {
                     Globals.SpriteBatch.Draw(_background, new Rectangle(0, 0, Globals.ScreenWidth, Globals.ScreenHeight), Color.White);
                 }
