@@ -47,7 +47,6 @@ namespace MiFiSy_TPI
             MediaPlayer.IsRepeating = true;
 
             new Config();
-            Globals.GameManager = new GameManager(true);
             Globals.home = new Home();
             base.Initialize();
         }
