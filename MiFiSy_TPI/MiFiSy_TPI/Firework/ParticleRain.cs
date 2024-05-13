@@ -30,6 +30,7 @@ namespace MiFiSy_TPI.Firework
         public Vector2 StartPosition { get => _startPosition; set => _startPosition = value; }
         public float StartSpeed { get => _startSpeed; set => _startSpeed = value; }
 
+        //[:constructeur:]
         /// <summary>
         /// Constructeur de la classe utilisée dans le jeu libre : créer la pluie de particule en fonction de paramètre du fichier de configuration
         /// </summary>
@@ -37,7 +38,6 @@ namespace MiFiSy_TPI.Firework
         /// <param name="lifespan">durée de vie du feu d'artifice</param>
         /// <param name="launchTime">Le temps à laquelle l'effet a été crée, seulement utilisé pour la sauvegarde</param>
         /// <param name="distanceFromBorder">distance pour ne pas créer la particule en dehors ou sur le bord de l'écran</param>
-        //[:constructeur:]
         public ParticleRain(float speed, float lifespan, float launchTime, float distanceFromBorder = 100)
         {
             LaunchTime = launchTime;
@@ -123,6 +123,9 @@ namespace MiFiSy_TPI.Firework
         }
 
         //[:updatedebut:]
+        /// <summary>
+        /// Méthode qui fais apparaître de nouvelles particules si la durée de vie n'est pas atteinte, sinon supprime les particules
+        /// </summary>
         public void Update()
         {
             _timerLife += Globals.TotalSeconds;

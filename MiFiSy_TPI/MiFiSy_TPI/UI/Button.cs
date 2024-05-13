@@ -65,10 +65,10 @@ namespace MiFiSy_TPI.UI
             _texture.SetData(colorData);
         }
 
+        //[:fonctionSetText:]
         /// <summary>
         /// Calcule la position et la taille du text par rapport à la largeur du rectangle qu'il contient
         /// </summary>
-        //[:fonctionSetText:]
         public void SetTextPositionAndScale()
         {
             if (Globals.FontButton.MeasureString(_text).X != 0)
