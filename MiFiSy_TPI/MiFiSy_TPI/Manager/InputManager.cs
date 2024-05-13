@@ -11,8 +11,13 @@ namespace MiFiSy_TPI.Manager
     internal class InputManager
     {
         private static MouseState _lastMouseState;
+        private static bool _hasSpaceKeyUp;
+        private static bool _hasEnterKeyUp;
+
         public static bool HasClicked { get; private set; }
         public static Vector2 MousePosition { get; private set; }
+        public static bool IsKeyParticleRainPressed { get; private set; }
+        public static bool IsKeyCometPressed { get; private set; }
 
         public static void Update()
         {
@@ -22,6 +27,36 @@ namespace MiFiSy_TPI.Manager
             MousePosition = mouseState.Position.ToVector2();
 
             _lastMouseState = mouseState;
+
+            if (Keyboard.GetState().IsKeyUp(Keys.Space))
+            {
+                _hasSpaceKeyUp = true;
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Space) && _hasSpaceKeyUp)
+            {
+                IsKeyParticleRainPressed = true;
+                _hasSpaceKeyUp = false;
+            }
+            else
+            {
+                IsKeyParticleRainPressed = false;
+            }
+
+            if (Keyboard.GetState().IsKeyUp(Keys.Enter))
+            {
+                _hasEnterKeyUp = true;
+            }
+
+            if (Keyboard.GetState().IsKeyDown(Keys.Enter) && _hasEnterKeyUp)
+            {
+                IsKeyCometPressed = true;
+                _hasEnterKeyUp = false;
+            }
+            else
+            {
+                IsKeyCometPressed = false;
+            }
         }
     }
 }

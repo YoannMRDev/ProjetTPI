@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using MiFiSy_TPI.Firework;
 using MiFiSy_TPI.UI;
@@ -353,14 +354,17 @@ namespace MiFiSy_TPI.Manager
                     }
                 }
 
-                // test (a supprimé)
-                if (InputManager.HasClicked)
+                // permet d'utiliser les touches du clavier au cas où la guitare ne fonctionne pas lors de la présentation
+                if (InputManager.IsKeyParticleRainPressed)
+                {
+                    Globals.LstFirework.Add(new ParticleRain(80, 3f, _timerLauch));
+                }
+                if (InputManager.IsKeyCometPressed)
                 {
                     int nbMortar = Globals.RandomInt(0, Config.ALL_MORTAR.Count - 1);
                     Vector2 emitPos = _lstMortar[nbMortar].Position;
                     emitPos.X += _lstMortar[nbMortar].Width / 2;
                     Globals.LstFirework.Add(new Comet(emitPos, _lstMortar[nbMortar].Angle, 400, 1.5f, _timerLauch));
-                    Globals.LstFirework.Add(new ParticleRain(80, 3f, _timerLauch));
                 }
             }
             else
