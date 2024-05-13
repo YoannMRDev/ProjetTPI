@@ -254,6 +254,7 @@ namespace MiFiSy_TPI.Manager
             // Sauvegarde le fichier
             document.Save($"{Config.PATH_SAVE_SEQUENCE}{currentDate.ToString("yyyy-MM-dd HH_mm_ss")}.xml");
             Globals.LstFirework.Clear();
+            _timerLauch = 0f;
         }
 
         /// <summary>
