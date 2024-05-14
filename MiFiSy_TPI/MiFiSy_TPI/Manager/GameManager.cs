@@ -133,7 +133,8 @@ namespace MiFiSy_TPI.Manager
             else
             {
                 // Charge le fichier pour le rejouer
-                _file = XDocument.Load(replayFileName).Descendants(ELEMENT_FIREWORK_SEQUENCE).FirstOrDefault();
+                _file = XDocument.Load(replayFileName).Descendants(ELEMENT_FIREWORK_SEQUENCE).
+                    FirstOrDefault();
 
                 // Créer tous les mortiers
                 foreach (XElement mortar in _file.Descendants(ELEMENT_MORTAR))
@@ -142,21 +143,25 @@ namespace MiFiSy_TPI.Manager
                 }
 
                 // Charge l'image si un chemin est indiqué dans le fichier de la séquence
-                if (_file.Descendants(ELEMENT_BACKGROUND).Attributes(ATTRIBUTE_IMG).FirstOrDefault().Value != "")
+                if (_file.Descendants(ELEMENT_BACKGROUND).Attributes(ATTRIBUTE_IMG).
+                    FirstOrDefault().Value != "")
                 {
                     try
                     {
-                        _background = Texture2D.FromFile(Globals.GraphicsDevice, _file.Descendants(ELEMENT_BACKGROUND).Attributes(ATTRIBUTE_IMG).FirstOrDefault().Value);
+                        _background = Texture2D.FromFile(Globals.GraphicsDevice, _file.Descendants(ELEMENT_BACKGROUND).Attributes(ATTRIBUTE_IMG).
+                            FirstOrDefault().Value);
                     }
                     catch { /* Le fichier n'existe pas ou n'est pas un format image */ }
                 }
 
                 // Charge et lance la musique si elle est indiqué dans le fichier de la séquence
-                if (_file.Descendants(ELEMENT_AUDIO).Attributes(ATTRIBUTE_TRACK).FirstOrDefault().Value != "")
+                if (_file.Descendants(ELEMENT_AUDIO).Attributes(ATTRIBUTE_TRACK).
+                    FirstOrDefault().Value != "")
                 {
                     try
                     {
-                        string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _file.Descendants(ELEMENT_AUDIO).Attributes(ATTRIBUTE_TRACK).FirstOrDefault().Value);
+                        string fullPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, _file.Descendants(ELEMENT_AUDIO).Attributes(ATTRIBUTE_TRACK).
+                            FirstOrDefault().Value);
                         _music = Song.FromUri(Path.GetFileName(fullPath), new Uri(fullPath));
                         MediaPlayer.Play(_music);
                     }
@@ -376,27 +381,38 @@ namespace MiFiSy_TPI.Manager
                     if (float.Parse(firework.Attribute(ATTRIBUTE_LAUNCH_TIME).Value) == _timerLauch)
                     {
                         // Récupère les informations communs aux feux d'artifices
-                        Color colorStart = Globals.GetColorFromElement(firework.Descendants(ELEMENT_COLOR_START).FirstOrDefault());
-                        Color colorEnd = Globals.GetColorFromElement(firework.Descendants(ELEMENT_COLOR_END).FirstOrDefault());
-                        float positionX = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_POSITION_X).Value);
-                        float positionY = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_POSITION_Y).Value);
-                        float speed = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_SPEED).Value);
-                        float lifespan = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_LIFESPAN).Value);
+                        Color colorStart = Globals.GetColorFromElement(firework.
+                            Descendants(ELEMENT_COLOR_START).FirstOrDefault());
+                        Color colorEnd = Globals.GetColorFromElement(firework.
+                            Descendants(ELEMENT_COLOR_END).FirstOrDefault());
+                        float positionX = float.Parse(firework.Descendants(ELEMENT_START).
+                            FirstOrDefault().Attribute(ATTRIBUTE_POSITION_X).Value);
+                        float positionY = float.Parse(firework.Descendants(ELEMENT_START).
+                            FirstOrDefault().Attribute(ATTRIBUTE_POSITION_Y).Value);
+                        float speed = float.Parse(firework.Descendants(ELEMENT_START).
+                            FirstOrDefault().Attribute(ATTRIBUTE_SPEED).Value);
+                        float lifespan = float.Parse(firework.Descendants(ELEMENT_START).
+                            FirstOrDefault().Attribute(ATTRIBUTE_LIFESPAN).Value);
 
                         string fireworkType = firework.Attribute(ATTRIBUTE_TYPE).Value;
                         if (fireworkType == ATTRIBUTE_TYPE_COMET)
                         {
                             // Crée une comète
-                            float sizeMain = float.Parse(firework.Descendants(ELEMENT_SIZE).FirstOrDefault().Attribute(ATTRIBUTE_MAIN_SIZE).Value);
-                            float sizeOther = float.Parse(firework.Descendants(ELEMENT_SIZE).FirstOrDefault().Attribute(ATTRIBUTE_OTHER_SIZE).Value);
-                            float angle = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_ANGLE).Value);
+                            float sizeMain = float.Parse(firework.Descendants(ELEMENT_SIZE).
+                                FirstOrDefault().Attribute(ATTRIBUTE_MAIN_SIZE).Value);
+                            float sizeOther = float.Parse(firework.Descendants(ELEMENT_SIZE).
+                                FirstOrDefault().Attribute(ATTRIBUTE_OTHER_SIZE).Value);
+                            float angle = float.Parse(firework.Descendants(ELEMENT_START).
+                                FirstOrDefault().Attribute(ATTRIBUTE_ANGLE).Value);
                             Globals.LstFirework.Add(new Comet(new Vector2(positionX, positionY), angle, speed, lifespan, colorStart, colorEnd, sizeMain, sizeOther));
                         }
                         else if (fireworkType == ATTRIBUTE_TYPE_PARTICLE_RAIN)
                         {
                             // Créer une pluie de particule
-                            float size = float.Parse(firework.Descendants(ELEMENT_SIZE).FirstOrDefault().Value);
-                            float nbParticle = float.Parse(firework.Descendants(ELEMENT_START).FirstOrDefault().Attribute(ATTRIBUTE_NB_PARTICLE).Value);
+                            float size = float.Parse(firework.Descendants(ELEMENT_SIZE).
+                                FirstOrDefault().Value);
+                            float nbParticle = float.Parse(firework.Descendants(ELEMENT_START).
+                                FirstOrDefault().Attribute(ATTRIBUTE_NB_PARTICLE).Value);
                             Globals.LstFirework.Add(new ParticleRain(new Vector2(positionX, positionY), speed, lifespan, colorStart, colorEnd, size, nbParticle));
                         }
                     }
