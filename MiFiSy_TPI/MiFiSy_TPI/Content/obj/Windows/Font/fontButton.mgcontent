@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/Font/fontButton.spritefont</SourceFile>
-  <SourceTime>2024-02-27T15:58:12.3112752+01:00</SourceTime>
-  <DestFile>C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/bin/Windows/Font/fontButton.xnb</DestFile>
-  <DestTime>2024-04-25T08:01:37.6881018+02:00</DestTime>
+  <SourceFile>C:/Users/Yoann/Documents/Monogame/MiFiSyV1/MiFiSy_TPI/MiFiSy_TPI/Content/Font/fontButton.spritefont</SourceFile>
+  <SourceTime>2024-05-06T13:23:31.336069+02:00</SourceTime>
+  <DestFile>C:/Users/Yoann/Documents/Monogame/MiFiSyV1/MiFiSy_TPI/MiFiSy_TPI/Content/bin/Windows/Font/fontButton.xnb</DestFile>
+  <DestTime>2024-05-06T13:24:27.5211609+02:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

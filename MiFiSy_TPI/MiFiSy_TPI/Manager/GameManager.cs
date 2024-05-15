@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using MiFiSy_TPI.Firework;
 using MiFiSy_TPI.UI;
@@ -11,7 +10,7 @@ using System.Linq;
 using System.Xml.Linq;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Classe de gestion du jeu libre et replay
  */
@@ -28,7 +27,7 @@ namespace MiFiSy_TPI.Manager
         private Texture2D _background;
         private XElement _file;
 
-        // Message après sauvegarde
+        // Message après la sauvegarde
         private float _timerSave;
         private bool showMessageSave;
 
@@ -174,7 +173,7 @@ namespace MiFiSy_TPI.Manager
         /// <summary>
         /// Ajoute dans la liste de mortier un élément récupéré de fichier xml
         /// </summary>
-        /// <param name="mortar"></param>
+        /// <param name="mortar">un XElement Mortar possedant les attributs "positionX", "positionY", "width", "height" et "angle"</param>
         public void AddMortarFromXElementToListMortar(XElement mortar)
         {
             _lstMortar.Add(new Mortar(new Vector2(float.Parse(mortar.Attribute(ATTRIBUTE_POSITION_X).Value), float.Parse(mortar.Attribute(ATTRIBUTE_POSITION_Y).Value)), float.Parse(mortar.Attribute(ATTRIBUTE_WIDTH).Value),
@@ -265,7 +264,7 @@ namespace MiFiSy_TPI.Manager
         /// <summary>
         /// Crée les éléments communs au feu d'artifice comme la couleur et le temps de lancement
         /// </summary>
-        /// <param name="firework">feu d'artifice lancé, pour récupéré le launchTime</param>
+        /// <param name="firework">feu d'artifice lancé, pour récupérer le launchTime</param>
         /// <param name="type">type de feu d'artifice : Comète, pluie de particule</param>
         private static XElement CreateCommonFireworkElement(IFirework firework, string type)
         {
@@ -437,7 +436,7 @@ namespace MiFiSy_TPI.Manager
                 // Affiche le message de confirmation de sauvegarde
                 if (showMessageSave)
                 {
-                    Globals.SpriteBatch.DrawString(Globals.FontButton, "Sauvegarde effectue", new Vector2(0.5f * Globals.ScreenWidth, 0.5f * Globals.ScreenHeight), Color.Red);
+                    Globals.SpriteBatch.DrawString(Globals.DefaultFontButton, "Sauvegarde effectue", new Vector2(0.5f * Globals.ScreenWidth, 0.5f * Globals.ScreenHeight), Color.Red);
                 }
             }
             else
@@ -449,14 +448,14 @@ namespace MiFiSy_TPI.Manager
                 }
 
                 // Affiche les données du replay
-                Globals.SpriteBatch.DrawString(Globals.FontButton, $"Nom de la sequence : {_file.Attribute(ATTRIBUTE_NAME).Value}", new Vector2(0.75f * Globals.ScreenWidth, 0.05f * Globals.ScreenHeight), Color.White);
-                Globals.SpriteBatch.DrawString(Globals.FontButton, $"Auteur : {_file.Attribute(ATTRIBUTE_AUTHOR).Value}", new Vector2(0.75f * Globals.ScreenWidth, 0.1f * Globals.ScreenHeight), Color.White);
-                Globals.SpriteBatch.DrawString(Globals.FontButton, $"Date : {_file.Attribute(ATTRIBUTE_CREATION_DATE).Value}", new Vector2(0.75f * Globals.ScreenWidth, 0.15f * Globals.ScreenHeight), Color.White);
+                Globals.SpriteBatch.DrawString(Globals.DefaultFontButton, $"Nom de la sequence : {_file.Attribute(ATTRIBUTE_NAME).Value}", new Vector2(0.75f * Globals.ScreenWidth, 0.05f * Globals.ScreenHeight), Color.White);
+                Globals.SpriteBatch.DrawString(Globals.DefaultFontButton, $"Auteur : {_file.Attribute(ATTRIBUTE_AUTHOR).Value}", new Vector2(0.75f * Globals.ScreenWidth, 0.1f * Globals.ScreenHeight), Color.White);
+                Globals.SpriteBatch.DrawString(Globals.DefaultFontButton, $"Date : {_file.Attribute(ATTRIBUTE_CREATION_DATE).Value}", new Vector2(0.75f * Globals.ScreenWidth, 0.15f * Globals.ScreenHeight), Color.White);
 
                 // Affiche un message de fin de replay
                 if (_timerLauch >= float.Parse(_file.Attribute(ATTRIBUTE_TIME_END).Value))
                 {
-                    Globals.SpriteBatch.DrawString(Globals.FontButton, "Fin du replay", new Vector2(0.5f * Globals.ScreenWidth, 0.5f * Globals.ScreenHeight), Color.Red);
+                    Globals.SpriteBatch.DrawString(Globals.DefaultFontButton, "Fin du replay", new Vector2(0.5f * Globals.ScreenWidth, 0.5f * Globals.ScreenHeight), Color.Red);
                 }
             }
 

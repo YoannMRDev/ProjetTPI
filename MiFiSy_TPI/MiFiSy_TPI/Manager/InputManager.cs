@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Input;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Classe pour gérer la souris
  */
@@ -21,18 +21,18 @@ namespace MiFiSy_TPI.Manager
 
         public static void Update()
         {
+            // Souris
             var mouseState = Mouse.GetState();
 
             HasClicked = mouseState.LeftButton == ButtonState.Pressed && _lastMouseState.LeftButton == ButtonState.Released;
             MousePosition = mouseState.Position.ToVector2();
-
             _lastMouseState = mouseState;
 
+            // Espace
             if (Keyboard.GetState().IsKeyUp(Keys.Space))
             {
                 _hasSpaceKeyUp = true;
             }
-
             if (Keyboard.GetState().IsKeyDown(Keys.Space) && _hasSpaceKeyUp)
             {
                 IsKeyParticleRainPressed = true;
@@ -43,11 +43,11 @@ namespace MiFiSy_TPI.Manager
                 IsKeyParticleRainPressed = false;
             }
 
+            // Enter
             if (Keyboard.GetState().IsKeyUp(Keys.Enter))
             {
                 _hasEnterKeyUp = true;
             }
-
             if (Keyboard.GetState().IsKeyDown(Keys.Enter) && _hasEnterKeyUp)
             {
                 IsKeyCometPressed = true;

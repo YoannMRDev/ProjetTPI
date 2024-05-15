@@ -1,13 +1,12 @@
 ﻿using Microsoft.Xna.Framework;
 using MiFiSy_TPI.ParticleCreator;
 using MiFiSy_TPI.ParticleCreator.Structure;
-using System;
 using System.Collections.Generic;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
- * Description de la page : Class d'une pluie de particule, version 2
+ * Description de la page : Class d'une pluie de particules, version 2
  */
 namespace MiFiSy_TPI.Firework
 {
@@ -32,11 +31,11 @@ namespace MiFiSy_TPI.Firework
 
         //[:constructeur:]
         /// <summary>
-        /// Constructeur de la classe utilisée dans le jeu libre : créer la pluie de particule en fonction de paramètre du fichier de configuration
+        /// Constructeur de la classe utilisée dans le jeu libre : créer la pluie de particules en fonction de paramètre du fichier de configuration
         /// </summary>
         /// <param name="speed">vitesse de départ du feu d'artifice</param>
         /// <param name="lifespan">durée de vie du feu d'artifice</param>
-        /// <param name="launchTime">Le temps à laquelle l'effet a été crée, seulement utilisé pour la sauvegarde</param>
+        /// <param name="launchTime">Le temps à lequel l'effet a été créé, seulement utilisé pour la sauvegarde</param>
         /// <param name="distanceFromBorder">distance pour ne pas créer la particule en dehors ou sur le bord de l'écran</param>
         public ParticleRain(float speed, float lifespan, float launchTime, float distanceFromBorder = 100)
         {
@@ -84,7 +83,7 @@ namespace MiFiSy_TPI.Firework
         /// <param name="colorStart">couleur de départ</param>
         /// <param name="colorEnd">couleur de fin</param>
         /// <param name="size">taille des particules</param>
-        /// <param name="nbParticle">nombre de particule a générer</param>
+        /// <param name="nbParticle">nombre de particules a générer</param>
         public ParticleRain(Vector2 position, float speed, float lifespan, Color colorStart, Color colorEnd, float size, float nbParticle)
         {
             LaunchTime = 0f;
@@ -124,7 +123,7 @@ namespace MiFiSy_TPI.Firework
 
         //[:updatedebut:]
         /// <summary>
-        /// Méthode qui fais apparaître de nouvelles particules si la durée de vie n'est pas atteinte, sinon supprime les particules
+        /// Méthode qui fait apparaître de nouvelles particules si la durée de vie n'est pas atteinte, sinon supprime les particules
         /// </summary>
         public void Update()
         {
@@ -158,8 +157,8 @@ namespace MiFiSy_TPI.Firework
                     }
                     _timerSpawn = 0;
                 }
-                
-                // Si un tiers du temps total est passé, les particules en movement tombent
+
+                // Si un tiers du temps total est passé, les particules en mouvement tombent
                 if (_timerLife >= Lifespan / 3)
                 {
                     foreach (Particle item in _lstMainParticles)

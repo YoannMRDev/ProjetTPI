@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Class d'un mortier
  */

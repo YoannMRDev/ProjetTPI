@@ -7,7 +7,7 @@ using MiFiSy_TPI.ParticleCreator;
 using System.Collections.Generic;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Page principale de l'application
  */
@@ -41,7 +41,7 @@ namespace MiFiSy_TPI
             Globals.ActualPage = Globals.AllPage.Home;
             Globals.LstFirework = new List<IFirework>();
             Globals.MusicSelectedName = "";
-            Globals.FontButton = Content.Load<SpriteFont>("Font/fontButton");
+            Globals.DefaultFontButton = Content.Load<SpriteFont>("Font/defaultFont");
 
             // Permet de mettre en boucle les musiques
             MediaPlayer.IsRepeating = true;

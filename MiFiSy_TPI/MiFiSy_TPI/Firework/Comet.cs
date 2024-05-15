@@ -3,7 +3,7 @@ using MiFiSy_TPI.ParticleCreator;
 using MiFiSy_TPI.ParticleCreator.Structure;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Classe de création du feu d'artifice de la comète
  */
@@ -35,7 +35,7 @@ namespace MiFiSy_TPI.Firework
         /// <param name="angle">angle de la comète</param>
         /// <param name="speed">vitesse de la comète</param>
         /// <param name="lifespan">durée de vie de la comète</param>
-        /// <param name="launchTime">Le temps à laquelle l'effet a été crée, seulement utilisé pour la sauvegarde</param>
+        /// <param name="launchTime">Le temps à lequel l'effet a été créé, seulement utilisé pour la sauvegarde</param>
         public Comet(Vector2 position, float angle, float speed, float lifespan, float launchTime)
         {
             LaunchTime = launchTime;

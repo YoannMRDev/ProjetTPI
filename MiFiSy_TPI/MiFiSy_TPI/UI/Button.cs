@@ -6,7 +6,7 @@ using MiFiSy_TPI.ParticleCreator;
 using System;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Class d'un bouton
  */
@@ -71,22 +71,23 @@ namespace MiFiSy_TPI.UI
         /// </summary>
         public void SetTextPositionAndScale()
         {
-            if (Globals.FontButton.MeasureString(_text).X != 0)
+            if (Globals.DefaultFontButton.MeasureString(_text).X != 0)
             {
                 // Calcul du facteur d'échelle pour le texte
-                float scaleX = (Rectangle.Width * (1 - _padding)) / Globals.FontButton.MeasureString(_text).X;
-                float scaleY = (Rectangle.Height * (1 - _padding)) / Globals.FontButton.MeasureString(_text).Y;
+                float scaleX = (Rectangle.Width * (1 - _padding)) / Globals.DefaultFontButton.MeasureString(_text).X;
+                float scaleY = (Rectangle.Height * (1 - _padding)) / Globals.DefaultFontButton.MeasureString(_text).Y;
                 _scale = Math.Min(scaleX, scaleY);
             }
             else
             {
                 _scale = 1;
             }
-
-            _textPosition.X = Rectangle.X + (Rectangle.Width - Globals.FontButton.MeasureString(_text).X * _scale) / 2;
-            _textPosition.Y = Rectangle.Y + (Rectangle.Height - Globals.FontButton.MeasureString(_text).Y * _scale) / 2;
+            // Calcul la position du texte
+            _textPosition.X = Rectangle.X + (Rectangle.Width - Globals.DefaultFontButton.MeasureString(_text).X * _scale) / 2;
+            _textPosition.Y = Rectangle.Y + (Rectangle.Height - Globals.DefaultFontButton.MeasureString(_text).Y * _scale) / 2;
         }
         //[:finfonctionSetText:]
+
         public void Update()
         {
             if (InputManager.HasClicked && Rectangle.Contains(InputManager.MousePosition))
@@ -131,7 +132,7 @@ namespace MiFiSy_TPI.UI
         public void Draw()
         {
             Globals.SpriteBatch.Draw(_texture, Rectangle, Color.White);
-            Globals.SpriteBatch.DrawString(Globals.FontButton, _text, _textPosition, _textColor, 0f, Vector2.Zero, _scale, SpriteEffects.None, 0f);
+            Globals.SpriteBatch.DrawString(Globals.DefaultFontButton, _text, _textPosition, _textColor, 0f, Vector2.Zero, _scale, SpriteEffects.None, 0f);
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Xml.Linq;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Page contenant des valeurs static nécéssaires dans plusieurs pages
  */
@@ -36,7 +36,7 @@ namespace MiFiSy_TPI
 
         public static SpriteBatch SpriteBatch { get; set; }
 
-        public static SpriteFont FontButton { get; set; }
+        public static SpriteFont DefaultFontButton { get; set; }
 
         public static GraphicsDevice GraphicsDevice { get; set; }
 
@@ -52,6 +52,9 @@ namespace MiFiSy_TPI
         /// </summary>
         public static int ScreenHeight { get; set; }
 
+        /// <summary>
+        /// Nom de la musique séléctionné
+        /// </summary>
         public static string MusicSelectedName { get; set; }
 
         public static Home home { get; set; }

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/Font/defaultFont.spritefont</SourceFile>
+  <SourceTime>2024-05-06T13:23:31.336069+02:00</SourceTime>
+  <DestFile>C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/bin/Windows/Content/Font/defaultFont.xnb</DestFile>
+  <DestTime>2024-05-15T10:35:02.608759+02:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2022-07-26T13:44:56+02:00</ProcessorTime>
+  <Parameters>
+    <Key>PremultiplyAlpha</Key>
+    <Value>True</Value>
+  </Parameters>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

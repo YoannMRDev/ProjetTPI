@@ -4,10 +4,12 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/Font/fontButton.spritefont</File>
+    <File>C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/Font/defaultFont.spritefont</File>
+    <File>C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/Font/fontErrorMidi.spritefont</File>
     <File>C:/Users/Yoann/Documents/Monogame/MiFiSy/MiFiSy_TPI/MiFiSy_TPI/Content/particle.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>

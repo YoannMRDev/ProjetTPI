@@ -5,7 +5,7 @@ using System.Linq;
 using System.Xml.Linq;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Class permettant de récupérer en static toutes les données du fichier de configuration
  */

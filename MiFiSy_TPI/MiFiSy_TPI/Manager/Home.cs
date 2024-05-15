@@ -7,7 +7,7 @@ using System.Linq;
 using System.Xml.Linq;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Classe de l'accueil
  */
@@ -19,10 +19,13 @@ namespace MiFiSy_TPI.Manager
         private Dictionary<string, Button> _lstReplay;
         private List<Button> _lstBtnMusic;
 
+        /// <summary>
+        /// Nombre maximum de fichier afficher
+        /// </summary>
         private const int NB_FILE_MAX = 10;
 
         /// <summary>
-        /// Constructeur de la classe, récupère les musiques, les séquences sauvegardés des dossiers défini dans le fichier de configuration
+        /// Constructeur de la classe, récupère les musiques, les séquences sauvegardées des dossiers défini dans le fichier de configuration
         /// </summary>
         public Home()
         {
@@ -85,7 +88,7 @@ namespace MiFiSy_TPI.Manager
                         Button btnSelected = _lstBtnMusic.Find(x => x.Text == Globals.MusicSelectedName);
                         btnSelected.TextColor = Color.White;
                         Globals.MusicSelectedName = "";
-                        // Si on a r'appuyé sur le même bouton, on ne le met pas en rouge
+                        // Si on a appuyé sur le même bouton, on ne le met pas en rouge, on veut qu'il devienne blanc
                         if (btnSelected.Text == btnMusic.Text)
                         {
                             changeOk = false;
@@ -121,12 +124,12 @@ namespace MiFiSy_TPI.Manager
             _btnPlay.Draw();
             if (_lstBtnMusic.Count != 0)
             {
-                Globals.SpriteBatch.DrawString(Globals.FontButton, "Choisir une musique : (optionnel)", new Vector2(_lstBtnMusic[0].Rectangle.X, _lstBtnMusic[0].Rectangle.Y - 50), Color.White);
+                Globals.SpriteBatch.DrawString(Globals.DefaultFontButton, "Choisir une musique : (optionnel)", new Vector2(_lstBtnMusic[0].Rectangle.X, _lstBtnMusic[0].Rectangle.Y - 50), Color.White);
             }
             _lstBtnMusic.ForEach(x => x.Draw());
             if (_lstReplay.Count != 0)
             {
-                Globals.SpriteBatch.DrawString(Globals.FontButton, "Revoir :", new Vector2(_lstReplay.ElementAt(0).Value.Rectangle.X, _lstReplay.ElementAt(0).Value.Rectangle.Y - 50), Color.White);
+                Globals.SpriteBatch.DrawString(Globals.DefaultFontButton, "Revoir :", new Vector2(_lstReplay.ElementAt(0).Value.Rectangle.X, _lstReplay.ElementAt(0).Value.Rectangle.Y - 50), Color.White);
             }
             foreach (Button btn in _lstReplay.Values)
             {

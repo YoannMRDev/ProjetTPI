@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Interface des particules pour n'avoir qu'une seule liste
  */
@@ -20,7 +20,7 @@ namespace MiFiSy_TPI.Firework
         float Lifespan { get; set; }
 
         /// <summary>
-        /// Temps après le début du mode libre où ce feu d'artifice est crée
+        /// Temps après le début du mode libre où ce feu d'artifice est créé
         /// </summary>
         float LaunchTime { get; set; }
 

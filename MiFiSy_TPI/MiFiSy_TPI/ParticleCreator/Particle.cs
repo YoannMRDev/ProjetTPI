@@ -4,9 +4,9 @@ using MiFiSy_TPI.ParticleCreator.Structure;
 using System;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
- * Description de la page : Class d'une particule (vient de : https://www.youtube.com/watch?v=-4_kj_gyWRY)
+ * Description de la page : Class d'une particule (Viens de : https://www.youtube.com/watch?v=-4_kj_gyWRY)
  */
 namespace MiFiSy_TPI.ParticleCreator
 {
@@ -69,13 +69,13 @@ namespace MiFiSy_TPI.ParticleCreator
             // Calcule le temps de vie restant
             _lifespanAmount = _lifespanLeft / _data.lifespan;
 
-            // Melange la couleur finale et la couleur initiale en fonction du lifespan
+            // Melange la couleur finale et la couleur initiale en fonction de la durée de vie
             _color = Color.Lerp(_data.colorEnd, _data.colorStart, _lifespanAmount);
 
-            // Melange l'opacité finale et l'opacité initiale en fonction du lifepan
+            // Melange l'opacité finale et l'opacité initiale en fonction de la durée de vie
             _opacity = MathHelper.Lerp(_data.opacityEnd, _data.opacityStart, _lifespanAmount);
 
-            // Melange la taille finale et la taille initiale en fonction du lifespan, puis ajuste l'échelle par rapport à la largeur de la texture.
+            // Melange la taille finale et la taille initiale en fonction de la durée de vie, puis ajuste l'échelle par rapport à la largeur de la texture.
             _scale = MathHelper.Lerp(_data.sizeEnd, _data.sizeStart, _lifespanAmount) / _data.texture.Width;
 
             // Met à jour la position de la particule en fonction de sa direction, de sa vitesse, du temps écoulé et des dimensions de l'écran.

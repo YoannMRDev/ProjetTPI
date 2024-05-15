@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using NAudio.Midi;
 /*
  * Auteur : Yoann Meier
- * Date : 06/05/2024
+ * Date : 15/05/2024
  * Projet : Projet TPI, application de simulation de feux d'artifices en 2D
  * Description de la page : Classe pour gérer les entrés MIDI
  */
@@ -16,9 +16,9 @@ namespace MiFiSy_TPI.Manager
         private SpriteFont _font;
 
         /// <summary>
-        /// Constructeur de la classe, connection à la guitare
+        /// Constructeur de la classe, connexion à la guitare
         /// </summary>
-        /// <param name="font">font pour le message d'erreur si la guitare n'est pas trouvé</param>
+        /// <param name="font">font pour le message d'erreur si la guitare n'est pas trouvée</param>
         public JamstikMidiListener(SpriteFont font)
         {
             _font = font;

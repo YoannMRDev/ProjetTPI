@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MiFiSy_TPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0cd6cb2feb4a25cefc321da5defb8292a3775d2d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a99ef8a89207bf77cddcf43be0123ac6e703296c")]
 [assembly: System.Reflection.AssemblyProductAttribute("MiFiSy_TPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MiFiSy_TPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
